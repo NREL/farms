@@ -10,7 +10,7 @@ Created on June 7th 2019.
 import os
 import pytest
 import numpy as np
-from nsrdb.all_sky.utilities import rayleigh
+from farms.utilities import rayleigh
 
 
 RTOL = 0.001

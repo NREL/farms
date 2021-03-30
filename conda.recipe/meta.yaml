@@ -1,5 +1,5 @@
 package:
-    name: nrel-wtk
+    name: nrel-farms
     version: {{ environ.get('GIT_DESCRIBE_TAG','').replace('v', '', 1) }}
 
 source:
@@ -15,19 +15,17 @@ requirements:
     - python
     - pip
     - setuptools
-    - filelock
-    - netCDF4
-    - NREL-rex>=0.2.44
+    - numpy>=1.16
+    - pandas
   run:
     - python
     - pip
-    - filelock
-    - netCDF4
-    - NREL-rex>=0.2.44
+    - {{ pin_compatible('numpy') }}
+    - pandas
 
 about:
-  home: "https://github.com/NREL/wtk"
+  home: "https://github.com/NREL/farms"
   license: BSD 3-Clause
-  summary: "WIND Toolkit and wind resource post-processing tools"
-  doc_url: "https://nrel.github.io/wtk"
-  dev_url: "https://github.com/NREL/wtk"
+  summary: "The Fast All-sky Radiation Model for Solar applications (FARMS) is used to compute cloudy irradiance."
+  doc_url: "https://nrel.github.io/farms"
+  dev_url: "https://github.com/NREL/farms"
