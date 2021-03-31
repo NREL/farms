@@ -1,6 +1,6 @@
 # pylint: skip-file
 """
-PyTest file for all sky utilities.
+PyTest file for farms utilities.
 
 Created on June 7th 2019.
 

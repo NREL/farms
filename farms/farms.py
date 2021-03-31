@@ -17,7 +17,6 @@ Literature
 """
 import collections
 import numpy as np
-import time
 
 from farms import CLEAR_TYPES, ICE_TYPES, WATER_TYPES, SOLAR_CONSTANT
 import farms.utilities as ut
@@ -216,82 +215,3 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
     else:
         # return only GHI
         return np.where(clear_mask, np.nan, ghi)
-
-
-def test(ysize, xsize):
-    '''
-    Test Harness for the Fast Model
-    '''
-    print('Creating Test Data...')
-    p = np.resize(1020.0, (ysize, xsize))
-    albedo = np.resize(0.01, (ysize, xsize))  # max( [0.05,min([albedo,.9]) ])
-    Z = np.resize(86.0, (ysize, xsize))
-
-    solar_zenith_angle = np.cos(Z * np.pi / 180.0)
-
-    # 1=water 2=ice
-    phase = np.resize(1, (ysize, xsize))
-    phase[:, 0:int(xsize / 2)] = 2
-
-    juday = np.resize(100, (ysize, xsize))
-    tau = np.resize(1.1, (ysize, xsize))
-    De = np.resize(20.0, (ysize, xsize))
-    # Rest2 Averaged DHI
-    Tuuclr = np.resize(0.652280, (ysize, xsize))
-    Ruuclr = np.resize(0.068121175, (ysize, xsize))
-    Tduclr = np.resize(0.33275462, (ysize, xsize))
-    Tddclr = np.resize(0.072141160, (ysize, xsize))
-
-    b = 2.0 * np.pi * juday / 365.0
-    R1 = (1.00011 + 0.034221 * np.cos(b) + 0.001280 * np.sin(b) + 0.000719
-          * np.cos(2.0 * b) + 0.000077 * np.sin(2.0 * b))
-    Radius = np.power(R1, -0.5)
-    print('==============================')
-    print(Radius)
-
-    # Start FastModel
-    print('Running Fast Model...')
-    t1 = time.clock()
-    F0 = 1361.2 / (Radius * Radius)
-
-    phase1 = np.where(phase == 1)
-    phase2 = np.where(phase == 2)
-
-    solarconst = np.empty_like(tau)
-    solarconst[:] = 1385.72180
-
-    Tducld = np.zeros_like(tau)
-    Ruucld = np.zeros_like(tau)
-
-    Tducld[phase1], Ruucld[phase1] = water_phase(tau[phase1], De[phase1],
-                                                 solar_zenith_angle[phase1],
-                                                 solarconst[phase1])
-
-    Tducld[phase2], Ruucld[phase2] = ice_phase(tau[phase2], De[phase2],
-                                               solar_zenith_angle[phase2],
-                                               solarconst[phase2])
-
-    Tddcld = np.exp(-tau / solar_zenith_angle)
-
-    Fd = solar_zenith_angle * F0 * Tddcld * Tddclr
-    F1 = solar_zenith_angle * F0 * (Tddcld * (Tddclr + Tduclr)
-                                    + Tducld * Tuuclr)
-
-    Ftotal = F1 / (1.0 - albedo * (Ruuclr + Ruucld * Tuuclr * Tuuclr))
-    dni = Fd / solar_zenith_angle
-    dhi = Ftotal - Fd
-    t = (time.clock() - t1)
-
-    print(Ftotal, Tducld, Ruucld, phase)
-    print('Water [Phase1]: DNI: {dni}, GHI: {ghi}, DHI: {dhi}'
-          .format(ghi=Ftotal[phase1], dni=dni[phase1], dhi=dhi[phase1]))
-    print('Ice   [Phase2]: DNI: {dni}, GHI: {ghi}, DHI: {dhi}'
-          .format(ghi=Ftotal[phase2], dni=dni[phase2], dhi=dhi[phase2]))
-    print('Model with Shape: {shape} took {sec} seconds or {min} minutes'
-          .format(shape=p.shape, min=t / 60.0, sec=t))
-
-
-if __name__ == '__main__':
-    ysize = 8760
-    xsize = 2
-    test(ysize, xsize)
