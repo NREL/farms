@@ -60,8 +60,8 @@ setup(
     keywords="farms",
     python_requires='>=3.6',
     classifiers=[
-        "Development Status :: Beta",
-        "Intended Audience :: Modelers",
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Science/Research",
         "License :: OSI Approved :: BSD License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3.6",

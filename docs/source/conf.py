@@ -21,15 +21,15 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-project = 'rex'
+project = 'farms'
 copyright = '2020, Alliance for Sustainable Energy, LLC'
-author = 'Michael Rossol, Grant Buster'
+author = 'Grant Buster'
 
 pkg = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 pkg = os.path.dirname(pkg)
 sys.path.append(pkg)
 
-with open(os.path.join(pkg, "rex", "version.py"), encoding="utf-8") as f:
+with open(os.path.join(pkg, "farms", "version.py"), encoding="utf-8") as f:
     v = f.read()
 
 v = v.split('=')[-1].strip().strip('"').strip("'")
@@ -108,8 +108,8 @@ html_theme_options = {"navigation_depth": 4, "collapse_navigation": False}
 html_context = {
     "display_github": True,
     "github_user": "nrel",
-    "github_repo": "rex",
-    "github_version": "master",
+    "github_repo": "farms",
+    "github_version": "main",
     "conf_py_path": "/docs/source/",
     "source_suffix": source_suffix,
 }
@@ -133,7 +133,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'rexdoc'
+htmlhelp_basename = 'farmsdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -160,8 +160,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'rex.tex', 'rex Documentation',
-     'Michael Rossol, Grant Buster', 'manual'),
+    (master_doc, 'farms.tex', 'farms Documentation',
+     'Grant Buster', 'manual'),
 ]
 
 
@@ -170,7 +170,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'rex', 'rex Documentation',
+    (master_doc, 'farms', 'farms Documentation',
      [author], 1)
 ]
 
@@ -181,8 +181,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'rex', 'rex Documentation',
-     author, 'rex', 'One line description of project.',
+    (master_doc, 'farms', 'farms Documentation',
+     author, 'farms',
+     'The Fast All-sky Radiation Model for Solar applications (FARMS)',
      'Miscellaneous'),
 ]
 

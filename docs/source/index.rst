@@ -2,7 +2,8 @@ rex documentation
 *******************
 
 What is farms?
-=============
+==============
+
 FARMS is the Fast All-sky Radiation Model for Solar applications and is used to
 compute cloudy irradiance.
 
