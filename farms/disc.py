@@ -37,7 +37,8 @@ def disc(ghi, sza, doy, pressure=101325, sza_lim=87):
         Pressure in Pascals.
     sza_lim : float | int
         Upper limit for solar zenith angle in degrees. SZA values greater than
-        this will be truncated at this value.
+        this will be truncated at this value. 87 deg chosen to simulate the
+        FORTRAN code in use by SRRL (from Perez).
 
     Returns
     -------
