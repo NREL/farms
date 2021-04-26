@@ -13,10 +13,10 @@ There were four main changes from the original code
 """
 import numpy as np
 
-from farms import SOLAR_CONSTANT, SZA_LIM
+from farms import SOLAR_CONSTANT
 
 
-def disc(ghi, sza, doy, pressure=101325, sza_lim=SZA_LIM):
+def disc(ghi, sza, doy, pressure=101325, sza_lim=87):
     """Estimate DNI from GHI using the DISC model.
 
     *Warning: should only be used for cloudy FARMS data.
