@@ -34,7 +34,7 @@ def disc(ghi, sza, doy, pressure=101325, sza_lim=87):
     doy : np.ndarray
         Day of year (array of integers).
     pressure : np.ndarray
-        Pressure in Pascals.
+        Pressure in mbar (same as hPa).
     sza_lim : float | int
         Upper limit for solar zenith angle in degrees. SZA values greater than
         this will be truncated at this value. 87 deg chosen to simulate the
@@ -45,9 +45,6 @@ def disc(ghi, sza, doy, pressure=101325, sza_lim=87):
     DNI : np.ndarray
         Estimated direct normal irradiance in W/m2.
     """
-    # convert pressure from mbar if necessary
-    if np.max(pressure) < 10000:
-        pressure *= 100
 
     A = np.zeros_like(ghi)
     B = np.zeros_like(ghi)
@@ -70,7 +67,7 @@ def disc(ghi, sza, doy, pressure=101325, sza_lim=87):
 
     AM = (1. / (np.cos(np.radians(Ztemp))
                 + 0.15 * (np.power((93.885 - Ztemp), -1.253)))
-          * pressure / 101325)
+          * 100 * pressure / 101325)
 
     Kt = ghi / I0h
     Kt[Kt < 0] = 0
