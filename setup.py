@@ -9,6 +9,8 @@ from subprocess import check_call
 import shlex
 from warnings import warn
 
+from farms import __version__ as version
+
 
 class PostDevelopCommand(develop):
     """
@@ -32,11 +34,6 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 with open(os.path.join(here, "README.rst"), encoding="utf-8") as f:
     readme = f.read()
-
-with open(os.path.join(here, "farms", "version.py"), encoding="utf-8") as f:
-    version = f.read()
-
-version = version.split('=')[-1].strip().strip('"').strip("'")
 
 with open("requirements.txt") as f:
     install_requires = f.readlines()
