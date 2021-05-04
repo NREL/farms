@@ -9,8 +9,6 @@ from subprocess import check_call
 import shlex
 from warnings import warn
 
-from farms import __version__ as version
-
 
 class PostDevelopCommand(develop):
     """
@@ -37,6 +35,11 @@ with open(os.path.join(here, "README.rst"), encoding="utf-8") as f:
 
 with open("requirements.txt") as f:
     install_requires = f.readlines()
+
+with open(os.path.join(here, "reVX", "version.py"), encoding="utf-8") as f:
+    version = f.read()
+
+version = version.split('=')[-1].strip().strip('"').strip("'")
 
 test_requires = ["pytest>=5.2", ]
 description = "The Fast All-sky Radiation Model for Solar applications (FARMS)"
