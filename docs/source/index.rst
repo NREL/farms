@@ -14,8 +14,14 @@ compute cloudy irradiance.
    :maxdepth: 3
    :caption: Contents:
 
-   misc/misc
-   farms/farms
+   installation
+
+.. autosummary::
+   :toctree: _farms
+   :template: custom-module-template.rst
+   :recursive:
+
+   farms
 
 Indices and tables
 ==================
