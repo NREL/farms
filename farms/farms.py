@@ -24,6 +24,11 @@ import farms.utilities as ut
 
 def water_phase(tau, De, solar_zenith_angle):
     """Get cloudy Tducld and Ruucld for the water phase."""
+    # enforce water phase particle size between 5 and 120 micron
+    # as per advice from yu xie
+    De = np.maximum(De, 5)
+    De = np.minimum(De, 120)
+
     # 12a from [1]
     Ptau = (2.8850 + 0.002 * (De - 60.0)) * solar_zenith_angle - 0.007347
 
@@ -56,6 +61,11 @@ def water_phase(tau, De, solar_zenith_angle):
 
 def ice_phase(tau, De, solar_zenith_angle):
     """Get cloudy Tducld and Ruucld for the ice phase."""
+    # enforce ice phase particle size between 5 and 140 micron
+    # as per advice from yu xie
+    De = np.maximum(De, 5)
+    De = np.minimum(De, 140)
+
     # 13a from [1]
     Ptau = np.where(De <= 26.0,
                     2.8487 * solar_zenith_angle - 0.0029,
