@@ -67,7 +67,7 @@ def disc(ghi, sza, doy, pressure=101325, sza_lim=87):
 
     AM = (1. / (np.cos(np.radians(Ztemp))
                 + 0.15 * (np.power((93.885 - Ztemp), -1.253)))
-          * 100 * pressure / 101325)
+          * pressure / 101325)
 
     Kt = ghi / I0h
     Kt[Kt < 0] = 0
