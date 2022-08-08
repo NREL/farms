@@ -16,7 +16,7 @@ import numpy as np
 from farms import SOLAR_CONSTANT
 
 
-def disc(ghi, sza, doy, pressure=101325, sza_lim=87):
+def disc(ghi, sza, doy, pressure=1013.25, sza_lim=87):
     """Estimate DNI from GHI using the DISC model.
 
     *Warning: should only be used for cloudy FARMS data.
