@@ -20,6 +20,7 @@ import numpy as np
 
 from farms import CLEAR_TYPES, ICE_TYPES, WATER_TYPES, SOLAR_CONSTANT
 import farms.utilities as ut
+from farms import farms_dni
 
 
 def water_phase(tau, De, solar_zenith_angle):
@@ -208,6 +209,8 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
     dni = Fd / solar_zenith_angle  # eq 2b from [1]
     dhi = ghi - Fd  # eq 7 from [1]
 
+    Fd, dni_farmsdni, dni0 = farms_dni.farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, Tddclr, ghi, F1)
+
     clear_mask = np.in1d(cloud_type, CLEAR_TYPES).reshape(cloud_type.shape)
     if debug:
         # Return NaN if clear-sky, else return cloudy sky data
@@ -224,4 +227,5 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
         return fast_data
     else:
         # return only GHI
-        return np.where(clear_mask, np.nan, ghi)
+        return np.where(clear_mask, np.nan, ghi), np.where(clear_mask, np.nan, dni_farmsdni), np.where(clear_mask, np.nan, dni0)
+#    print( theta00, idx, muomega )
