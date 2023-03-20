@@ -1,7 +1,6 @@
 """
 Created on March 1, 2022
 FARMS-DNI model developed by Yu Xie (yu.xie@nrel.gov)
-Must have Interomega.dat to compute DNI
 
 Literature
 [1] Yu Xie, Manajit Sengupta, Yangang Liu, Hai Long, Qilong Min, Weijia Liu, Aron Habte, 
@@ -17,37 +16,19 @@ import sys
 import pandas as pd
 
 
-def Read_Two_Column_File(file_name):
-    with open(file_name, 'r') as data:
-        x = []
-        y = []
-        for line in data:
-            p = line.split()
-            x.append(float(p[0]))
-            y.append(float(p[1]))
-
-    return x, y
-
-def find_nearest(array, value):
-    array = np.asarray(array)
-    idx = (np.abs(array - value)).argmin()
-    return array[idx], idx
-
-
-
 def TDD2(Z, Ftotal, F1):
-
+    # compute surface reflection that falls in the circumsolar region. A parameterization of Eq. (S4) in Xie et al (2020) is used.
     a = 5.94991536e-03
     b = 5.42116600e-01
     c = 331280.9859904468
-    muomega = np.exp(-np.power(Z-b, 3.0)/c )
+    muomega = a*np.exp(-np.power(Z-b, 3.0)/c )
 
     Fd2 = np.cos( Z*np.pi/180.0 )*(Ftotal - F1)*muomega/np.pi
     return Fd2
 
 
 def TDDP(Z, tau, De, phase1, phase2):
-
+    # compute cloud transmittance of DNI for water and ice clouds
     Tddcld = np.zeros_like(tau)
     Tddcld[phase1] = Pwater( Z[phase1],tau[phase1], De[phase1] )
     Tddcld[phase2] = Pice( Z[phase2],tau[phase2], De[phase2] )
@@ -55,11 +36,10 @@ def TDDP(Z, tau, De, phase1, phase2):
     return Tddcld
 
 
-
 def Pwater(Z, tau, De):
 
     umu0 = np.cos( Z*np.pi/180.0 )
-### taup
+### taup  Eq.(3) in Yang et al. (2022)
     taup = np.zeros_like(Z)
     taup[(De<10.0) & (umu0<0.1391)] = 0.1
     taup[(De<10.0) & (umu0>=0.1391) & (umu0<0.2419)] = 0.2
@@ -75,7 +55,7 @@ def Pwater(Z, tau, De):
     taup[(De>=10.0) & (umu0>=0.3746) & (umu0<0.6156)] = 0.5
     taup[(De>=10.0) & (umu0>=0.6156)] = 1.0
 
-###Tddp
+###Tddp  Eq(4) in Yang et al. (2022)
     h = 0.005553*np.log(De) + 0.002503
     h[De==0] = 0.0
     Tddp = np.zeros_like(Z)
@@ -96,9 +76,11 @@ def Pwater(Z, tau, De):
     a8 = umu0>=0.999
     Tddp[a8] = 0.76*h[a8]
 
+    # Eq.(6) in Yang et al. (2022)
     a = 2.0339*np.power( umu0, -0.927 )
     b = 6.6421*np.power( umu0, 2.0672 )
 
+    # compute Tddcld using Eq.(5) in Yang et al. (2022)
     Tddcld = np.zeros_like(Z)
     a1 = tau<=0.9*taup
     Tddcld[a1] = Tddp[a1]*np.tanh(a[a1]*tau[a1])
@@ -108,16 +90,13 @@ def Pwater(Z, tau, De):
     a3 = tau>=taup
     Tddcld[a3] = Tddp[a3]*np.tanh(b[a3]/np.power(tau[a3],2.0))
 
-
     return Tddcld
-
-
 
 
 def Pice(Z, tau, De):
 
     umu0 = np.cos( Z*np.pi/180.0 )
-### taup
+### taup Eq.(3) in Yang et al. (2022)
     taup = np.zeros_like(Z)
     a1 = (De>=5.0) & (De<14.0) & (umu0<0.1391)
     taup[a1] = 0.1
@@ -164,7 +143,7 @@ def Pice(Z, tau, De):
     a21 = (De>=50.0) & (umu0>=-0.0006*De+1.0367) 
     taup[a21] = 2.0
 
-###Tddp
+###Tddp   Eq(4) in Yang et al. (2022)
     Tddp = np.zeros_like(Z)
     b1 = (umu0>=0.9994) & (De<=10.0) 
     Tddp[b1] = 0.12269
@@ -179,7 +158,6 @@ def Pice(Z, tau, De):
     Tddp[b5] = -4.5171*np.power(umu0[b5],2.0) + 8.3056*umu0[b5] - 3.6476
     b6 = (umu0>=0.9945) & (umu0<0.9994) & (De<=10.0)
     Tddp[b6] = 298.45*np.power(umu0[b6],2.0) - 601.33*umu0[b6] + 303.04
-
 
     ade = -0.000232338*np.power(De,2.0) + 0.012748726*De + 0.046745083
     b7 = (umu0<0.999) & (De>10.0) & (De<=30.0) & (umu0<=0.2419)
@@ -233,7 +211,7 @@ def Pice(Z, tau, De):
     b30 = (umu0<0.999) & (De>30.0) & (umu0>0.9945)
     Tddp[b30] = (6309.63*np.power(umu0[b30],2.0) - 12654.78*umu0[b30] +6346.15)*bde[b30]
 
-###Tddcld
+###compute Tddcld using Eq.(5) in Yang et al. (2022)
     a = 1.7686*np.power(umu0,-0.95)
     b = 7.117*np.power(umu0,1.9658)
 
@@ -249,12 +227,9 @@ def Pice(Z, tau, De):
     return Tddcld
 
 
-
-
-
 def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, Tddclr, Ftotal, F1):
 
-    ############### scale tau
+    ############### scale tau for the computation of DNI. See Eqs. (3a and 3b) in Xie et al. (2020), iScience.
     taudni = np.zeros_like(tau)
 
     a1 = np.where( (phase == 1) & (tau<8.0) )
@@ -270,16 +245,19 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, Tddclr, Ft
     taudni[b2] = 0.2*np.power(tau[b2]-8.0, 1.5) + 2.91345
     ###############
 
+    # compute DNI in the narrow beam. Eq.(S2) in Xie et al. (2020), iScience.
     Z = np.arccos(solar_zenith_angle)*180.0/np.pi
     dni0 = F0*Tddclr*np.exp(-tau/solar_zenith_angle)
 
     Tddcld0 = np.exp(-taudni/solar_zenith_angle)
     Fd0 = solar_zenith_angle*F0*Tddcld0*Tddclr
 
+    # compute scattered radiation in the circumsolar region. Eq.(S3 and S4) in Xie et al. (2020), iScience.
     Tddcld1 = TDDP(Z, taudni, De, phase1, phase2)
     Fd1 = solar_zenith_angle*F0*Tddclr*Tddcld1
     Fd2 = TDD2(Z, Ftotal, F1 )
 
+    # compute DNI using the three components. Eq.(S1) in Xie et al. (2020), iScience.
     Fd = Fd0 + Fd1 + Fd2
     dni_farmsdni = Fd/solar_zenith_angle
 
