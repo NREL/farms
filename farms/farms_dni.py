@@ -15,6 +15,34 @@ import numpy as np
 import sys
 import pandas as pd
 
+'''
+Fast All-sky Radiation Model for solar applications with direct normal irradiance (FARMS-DNI)
+
+References
+-----------
+Xie, Y., Sengupta, M., Dudhia, J., 2016. A Fast All-sky Radiation Model for Solar applications (FARMS): Algorithm and performance evaluation. Sol. Energy 135, 435-445.
+Xie, Y., Sengupta, M., Liu, Y., Long, H., Min, Q., Liu, W., Habte, A., 2020. A physics-based DNI model assessing all-sky circumsolar radiation. iScience 22, doi.org/10.1016/j.isci.2020.100893.
+Yang, J., Xie, Y., Sengupta, M., Liu, Y., Long, H., 2022. Parameterization of cloud transmittance for expeditious assessment and forecasting of all-sky DNI. J. Renewable Sustainable Energy 14, 063703.
+
+Input data
+-----------
+F0:  np.ndarray
+extraterrestrial solar radiation (Wm-2).
+F1: np.ndarray
+    First order solar radiation given in FARMS (Wm-2). See Xie et al. (2016) for more details.
+
+Output data
+-----------
+Fd: np.ndarray
+    Direct radiation in the downwelling direction (Wm-2). It includes the narrow beam and the scattered radiation in the circumsolar region. 
+
+dni_farmsdni: np.ndarray
+    DNI computed by FARMS-DNI (Wm-2).
+dni0: np.ndarray
+    DNI computed by the Lambert law (Wm-2). It only includes the narrow beam in the circumsolar region.
+'''
+
+
 
 def TDD2(Z, Ftotal, F1):
     # compute surface reflection that falls in the circumsolar region. A parameterization of Eq. (S4) in Xie et al (2020) is used.
