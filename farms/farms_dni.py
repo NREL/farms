@@ -1,22 +1,9 @@
 """
-Created on March 1, 2022
-FARMS-DNI model developed by Yu Xie (yu.xie@nrel.gov)
-
-Literature
-[1] Yu Xie, Manajit Sengupta, Yangang Liu, Hai Long, Qilong Min, Weijia Liu, Aron Habte, 
-    A physics-based DNI model assessing all-sky circumsolar radiation, iScience
-[2] Yu Xie, Jaemo Yang, Manajit Sengupta, Yangang Liu, Xin Zhou, 
-    Improving the prediction of DNI with physics-based representation of all-sky circumsolar radaition, Solar Energy
-[3] Jaemo Yang, Yu Xie, Manajit Sengupta, Yangang Liu, Hai Long, 
-    Parameterization of cloud transmittance for expeditious assessment and forecasting of all-sky DNI, Solar Energy
-
-"""
-import numpy as np
-import sys
-import pandas as pd
-
-'''
 Fast All-sky Radiation Model for solar applications with direct normal irradiance (FARMS-DNI)
+
+Created on March 1, 2022
+Upgraded on March 21, 2023
+FARMS-DNI model developed by Yu Xie (yu.xie@nrel.gov)
 
 References
 -----------
@@ -40,7 +27,11 @@ dni_farmsdni: np.ndarray
     DNI computed by FARMS-DNI (Wm-2).
 dni0: np.ndarray
     DNI computed by the Lambert law (Wm-2). It only includes the narrow beam in the circumsolar region.
-'''
+
+"""
+import numpy as np
+import sys
+import pandas as pd
 
 
 
