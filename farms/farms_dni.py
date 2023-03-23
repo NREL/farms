@@ -14,7 +14,26 @@ Yang, J., Xie, Y., Sengupta, M., Liu, Y., Long, H., 2022. Parameterization of cl
 Input data
 -----------
 F0:  np.ndarray
-extraterrestrial solar radiation (Wm-2).
+    extraterrestrial solar radiation (Wm-2).
+tau : np.ndarray
+    Cloud optical thickness (cld_opd_dcomp) (unitless).
+solar_zenith_angle : np.ndarray
+    Solar zenith angle (degrees). Must represent the average value over the
+    integration period (e.g. hourly) under scrutiny.
+De: np.ndarray
+    Effective cloud particle size (diameter, micron).
+phase: np.ndarray
+    Cloud thermodynamic phase (water:1, ice:2)
+phase1: np.ndarray
+    np.where( phase==1 )
+phase2: np.ndarray
+    np.where( phase==2 )
+Tddclr : np.ndarray
+    Calculated in REST2. Transmittance of the clear-sky atmosphere for
+    direct incident and direct outgoing fluxes (dd).
+    Tddclr = dni / etdirn
+Ftotal: np.ndarray
+    GHI (Wm-2)   
 F1: np.ndarray
     First order solar radiation given in FARMS (Wm-2). See Xie et al. (2016) for more details.
 
@@ -22,7 +41,6 @@ Output data
 -----------
 Fd: np.ndarray
     Direct radiation in the downwelling direction (Wm-2). It includes the narrow beam and the scattered radiation in the circumsolar region. 
-
 dni_farmsdni: np.ndarray
     DNI computed by FARMS-DNI (Wm-2).
 dni0: np.ndarray
