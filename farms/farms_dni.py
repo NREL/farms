@@ -30,7 +30,7 @@ def TDD2(Z, Ftotal, F1):
     a = 5.94991536e-03
     b = 5.42116600e-01
     c = 331280.9859904468
-    muomega = a * np.exp( -np.power(Z - b, 3.0)/c )
+    muomega = a * np.exp(-np.power(Z - b, 3.0) / c)
 
     Fd2 = np.cos(Z * np.pi / 180.0) * (Ftotal - F1) * muomega / np.pi
     return Fd2
@@ -73,8 +73,8 @@ def Pwater(Z, tau, De):
     h[De == 0] = 0.0
     Tddp = np.zeros_like(Z)
     a1 = (umu0 >= 0.0) & (umu0 < 0.342)
-    Tddp[a1] = h[a1] * (-0.1787 * umu0[a1] * umu0[a1] + 0.2207 * umu0[a1] \
-               + 0.977)
+    Tddp[a1] = h[a1] * \
+        (-0.1787 * umu0[a1] * umu0[a1] + 0.2207 * umu0[a1] + 0.977)
     a2 = (umu0 >= 0.342) & (umu0 < 0.4694)
     Tddp[a2] = h[a2]
     a3 = (umu0 >= 0.4694) & (umu0 < 0.7193)
