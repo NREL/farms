@@ -12,6 +12,7 @@ import numpy as np
 from farms import farms_dni
 
 def test_farmsdni():
+
     '''
     Test FARMS-DNI with typical input variables
     Check if the DNI computation is between 0 and 1400,
