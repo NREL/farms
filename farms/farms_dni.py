@@ -23,14 +23,14 @@ import pandas as pd
 
 def TDD2(Z, Ftotal, F1):
     '''
-    Compute surface reflection that falls in the circumsolar region. 
+    Compute surface reflection that falls in the circumsolar region.
     A parameterization of Eq. (S4) in Xie et al (2020) is used.
     '''
     # compute the integration of the solid angle
     a = 5.94991536e-03
     b = 5.42116600e-01
     c = 331280.9859904468
-    muomega = a * np.exp( -np.power(Z-b, 3.0)/c )
+    muomega = a * np.exp( -np.power(Z - b, 3.0)/c )
 
     Fd2 = np.cos(Z * np.pi / 180.0) * (Ftotal - F1) * muomega / np.pi
     return Fd2
@@ -41,8 +41,8 @@ def TDDP(Z, tau, De, phase1, phase2):
     compute cloud transmittance of DNI for water and ice clouds
     '''
     Tddcld = np.zeros_like(tau)
-    Tddcld[phase1] = Pwater( Z[phase1],tau[phase1], De[phase1] )
-    Tddcld[phase2] = Pice( Z[phase2],tau[phase2], De[phase2] )
+    Tddcld[phase1] = Pwater(Z[phase1], tau[phase1], De[phase1])
+    Tddcld[phase2] = Pice(Z[phase2], tau[phase2], De[phase2])
 
     return Tddcld
 
@@ -51,7 +51,7 @@ def Pwater(Z, tau, De):
     '''
     Compute cloud transmittance for water clouds
     '''
-    umu0 = np.cos( Z * np.pi / 180.0 )
+    umu0 = np.cos(Z * np.pi / 180.0)
     # taup  Eq.(3) in Yang et al. (2022)
     taup = np.zeros_like(Z)
     taup[(De < 10.0) & (umu0 < 0.1391)] = 0.1
@@ -73,9 +73,10 @@ def Pwater(Z, tau, De):
     h[De == 0] = 0.0
     Tddp = np.zeros_like(Z)
     a1 = (umu0 >= 0.0) & (umu0 < 0.342)
-    Tddp[a1] = h[a1] * (-0.1787 * umu0[a1] * umu0[a1] + 0.2207 * umu0[a1] + 0.977)
+    Tddp[a1] = h[a1] * (-0.1787 * umu0[a1] * umu0[a1] + 0.2207 * umu0[a1] \
+               + 0.977)
     a2 = (umu0 >= 0.342) & (umu0 < 0.4694)
-    Tddp[a2] = h[a2] 
+    Tddp[a2] = h[a2]
     a3 = (umu0 >= 0.4694) & (umu0 < 0.7193)
     Tddp[a3] = h[a3] * (2.6399 * umu0[a3] * umu0[a3] - 3.2111 * umu0[a3] + 1.9434)
     a4 = (umu0 >= 0.7193) & (umu0 < 0.8829)
