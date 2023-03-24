@@ -9,10 +9,9 @@ Created on 03/24/2023
 import numpy as np
 from farms import farms_dni
 
-
 def test_farmsdni():
     '''Test FARMS-DNI with typical input variables
-        Check if the DNI computation is between 0 and 1400, 
+        Check if the DNI computation is between 0 and 1400,
         and larger than the DNI in the narrow beam.
     '''
 
