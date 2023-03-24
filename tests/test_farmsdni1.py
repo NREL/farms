@@ -36,7 +36,7 @@ def test_farmsdni():
     cond2 = dni_farmsdni[dni_farmsdni >= 1400]
     cond3 = np.where(dni_farmsdni < dni0)[0]
 
-    useless = Fd  #Set this to pass the Linting
+    print(Fd)  #Set this to pass the Linting
 
     wrong_num = len(cond1) + len(cond2) + len(cond3)
     assert wrong_num == 0
