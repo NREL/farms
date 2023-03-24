@@ -11,7 +11,10 @@ from farms import farms_dni
 
 
 def test_farmsdni():
-    '''Test FARMS-DNI with typical input variables '''
+    '''Test FARMS-DNI with typical input variables
+        Check if the DNI computation is between 0 and 1400, 
+        and larger than the DNI in the narrow beam.
+    '''
 
     n = 100
     F0 = np.full(n, 1360.0)
