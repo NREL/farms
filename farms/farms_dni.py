@@ -78,15 +78,20 @@ def Pwater(Z, tau, De):
     a2 = (umu0 >= 0.342) & (umu0 < 0.4694)
     Tddp[a2] = h[a2]
     a3 = (umu0 >= 0.4694) & (umu0 < 0.7193)
-    Tddp[a3] = h[a3] * (2.6399 * umu0[a3] * umu0[a3] - 3.2111 * umu0[a3] + 1.9434)
+    Tddp[a3] = h[a3] * \
+        (2.6399 * umu0[a3] * umu0[a3] - 3.2111 * umu0[a3] + 1.9434)
     a4 = (umu0 >= 0.7193) & (umu0 < 0.8829)
-    Tddp[a4] = h[a4] * (-0.224 * umu0[a4] * umu0[a4] + 0.0835 * umu0[a4] + 1.056)
+    Tddp[a4] = h[a4] * \
+        (-0.224 * umu0[a4] * umu0[a4] + 0.0835 * umu0[a4] + 1.056)
     a5 = (umu0 >= 0.8829) & (umu0 < 0.9396)
-    Tddp[a5] = h[a5] * (-94.381 * umu0[a5] * umu0[a5] + 170.32 * umu0[a5] - 75.843)
+    Tddp[a5] = h[a5] * \
+        (-94.381 * umu0[a5] * umu0[a5] + 170.32 * umu0[a5] - 75.843)
     a6 = (umu0 >= 0.9396) & (umu0 < 0.9945)
-    Tddp[a6] = h[a6] * (-12.794 * umu0[a6] * umu0[a6] + 22.686 * umu0[a6] - 8.9392)
+    Tddp[a6] = h[a6] * \
+        (-12.794 * umu0[a6] * umu0[a6] + 22.686 * umu0[a6] - 8.9392)
     a7 = (umu0 >= 0.9945) & (umu0 < 0.999)
-    Tddp[a7] = h[a7]*(11248.61 * umu0[a7] * umu0[a7] - 22441.07 * umu0[a7] + 11193.59)
+    Tddp[a7] = h[a7] * \
+        (11248.61 * umu0[a7] * umu0[a7] - 22441.07 * umu0[a7] + 11193.59)
     a8 = umu0 >= 0.999
     Tddp[a8] = 0.76 * h[a8]
 
@@ -99,10 +104,9 @@ def Pwater(Z, tau, De):
     a1 = tau <= 0.9 * taup
     Tddcld[a1] = Tddp[a1] * np.tanh(a[a1] * tau[a1])
     a2 = (tau > 0.9 * taup) & (tau < taup)
-    Tddcld[a2] = Tddp[a2] * np.tanh(0.9 * a[a2] * taup[a2]) + \
-                 Tddp[a2] * (np.tanh(b[a2] / np.power(taup[a2],2.0)) \
-                 - np.tanh(0.9 * a[a2] * taup[a2])) * \
-                 (tau[a2] - 0.9 * taup[a2])/(0.1 * taup[a2])
+    Tddcld[a2] = Tddp[a2] * np.tanh(0.9 * a[a2] * taup[a2]) + Tddp[a2] * \
+    (np.tanh(b[a2] / np.power(taup[a2],2.0)) - np.tanh(0.9 * a[a2] * taup[a2]))\
+        * (tau[a2] - 0.9 * taup[a2])/(0.1 * taup[a2])
     a3 = tau >= taup
     Tddcld[a3] = Tddp[a3] * np.tanh(b[a3] / np.power(tau[a3],2.0))
 
