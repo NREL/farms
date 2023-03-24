@@ -96,19 +96,19 @@ def Pwater(Z, tau, De):
     Tddp[a8] = 0.76 * h[a8]
 
     # Eq.(6) in Yang et al. (2022)
-    a = 2.0339 * np.power( umu0, -0.927 )
-    b = 6.6421 * np.power( umu0, 2.0672 )
+    a = 2.0339 * np.power(umu0, -0.927)
+    b = 6.6421 * np.power(umu0, 2.0672)
 
     # compute Tddcld using Eq.(5) in Yang et al. (2022)
     Tddcld = np.zeros_like(Z)
     a1 = tau <= 0.9 * taup
     Tddcld[a1] = Tddp[a1] * np.tanh(a[a1] * tau[a1])
     a2 = (tau > 0.9 * taup) & (tau < taup)
+    temp = np.tanh(b[a2] / np.power(taup[a2],2.0)) - np.tanh(0.9 * a[a2] * taup[a2])
     Tddcld[a2] = Tddp[a2] * np.tanh(0.9 * a[a2] * taup[a2]) + Tddp[a2] * \
-    (np.tanh(b[a2] / np.power(taup[a2],2.0)) - np.tanh(0.9 * a[a2] * taup[a2]))\
-        * (tau[a2] - 0.9 * taup[a2])/(0.1 * taup[a2])
+        temp * (tau[a2] - 0.9 * taup[a2])/(0.1 * taup[a2])
     a3 = tau >= taup
-    Tddcld[a3] = Tddp[a3] * np.tanh(b[a3] / np.power(tau[a3],2.0))
+    Tddcld[a3] = Tddp[a3] * np.tanh(b[a3] / np.power(tau[a3], 2.0))
 
     return Tddcld
 
@@ -117,7 +117,7 @@ def Pice(Z, tau, De):
     '''
     Compute cloud transmittance for ice clouds
     '''
-    umu0 = np.cos( Z * np.pi / 180.0 )
+    umu0 = np.cos(Z * np.pi / 180.0)
     # taup Eq.(3) in Yang et al. (2022)
     taup = np.zeros_like(Z)
     a1 = (De >= 5.0) & (De < 14.0) & (umu0 < 0.1391)
@@ -144,7 +144,7 @@ def Pice(Z, tau, De):
           (umu0 < -0.0022 * De + 0.3340)
     taup[a10] = 0.3
     a11 = (De >= 14.0) & (De < 50.0) & (umu0 >= -0.0022 * De + 0.3340) & \
-          (umu0<-0.0020*De+0.4096)
+          (umu0 < -0.0020 * De + 0.4096)
     taup[a11] = 0.4
     a12 = (De >= 14.0) & (De < 50.0) & (umu0 >= -0.0020 * De + 0.4096) & \
           (umu0 < -0.0033 * De + 0.6461)
@@ -186,94 +186,94 @@ def Pice(Z, tau, De):
     b4 = (umu0 < 0.9396) & (De <= 10.0)
     Tddp[b4] = 0.14991
     b5 = (umu0 < 0.9945) & (umu0 >= 0.9396) & (De <= 10.0)
-    Tddp[b5] = -4.5171 * np.power(umu0[b5],2.0) + 8.3056 * umu0[b5] - 3.6476
+    Tddp[b5] = -4.5171 * np.power(umu0[b5], 2.0) + 8.3056 * umu0[b5] - 3.6476
     b6 = (umu0 >= 0.9945) & (umu0 < 0.9994) & (De <= 10.0)
-    Tddp[b6] = 298.45 * np.power(umu0[b6],2.0) - 601.33 * umu0[b6] + 303.04
+    Tddp[b6] = 298.45 * np.power(umu0[b6], 2.0) - 601.33 * umu0[b6] + 303.04
 
-    ade = -0.000232338 * np.power(De,2.0) + 0.012748726 * De + 0.046745083
+    ade = -0.000232338 * np.power(De, 2.0) + 0.012748726 * De + 0.046745083
     b7 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 <= 0.2419)
-    Tddp[b7] = (-8.454 * np.power(umu0[b7],2.0) + 2.4095 * umu0[b7] + 0.8425) *\
+    Tddp[b7] = (-8.454 * np.power(umu0[b7], 2.0) + 2.4095 * umu0[b7] + 0.8425) *\
                 ade[b7]
     b8 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.2419) &\
          (umu0 <= 0.3746)
-    Tddp[b8] = (-13.528 * np.power(umu0[b8],2.0) + 7.8403 * umu0[b8] -0.1221)\
+    Tddp[b8] = (-13.528 * np.power(umu0[b8], 2.0) + 7.8403 * umu0[b8] -0.1221)\
                * ade[b8]
     b9 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.3746) &\
          (umu0 <= 0.4694)
-    Tddp[b9] = (19.524 * np.power(umu0[b9],2.0) - 16.5 * umu0[b9] + 4.4612) *\
+    Tddp[b9] = (19.524 * np.power(umu0[b9], 2.0) - 16.5 * umu0[b9] + 4.4612) *\
                 ade[b9]
     b10 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.4694) &\
           (umu0 <= 0.5877)
-    Tddp[b10] = (16.737 * np.power(umu0[b10],2.0) - 17.419 * umu0[b10] + 5.4881)\
+    Tddp[b10] = (16.737 * np.power(umu0[b10], 2.0) - 17.419 * umu0[b10] + 5.4881)\
                  * ade[b10]
     b11 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.5877) &\
           (umu0 <= 0.6691)
-    Tddp[b11] = (-39.493 * np.power(umu0[b11],2.0) + 48.963 * umu0[b11] -14.175)\
+    Tddp[b11] = (-39.493 * np.power(umu0[b11], 2.0) + 48.963 * umu0[b11] -14.175)\
                 * ade[b11]
     b12 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.6691) &\
           (umu0 <= 0.7660)
-    Tddp[b12] = (0.4017 * np.power(umu0[b12],2.0) - 0.243 * umu0[b12] + 0.9609)\
+    Tddp[b12] = (0.4017 * np.power(umu0[b12], 2.0) - 0.243 * umu0[b12] + 0.9609)\
                 *ade[b12]
     b13 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.7660) &\
           (umu0 <= 0.8480)
-    Tddp[b13] = (-11.183 * np.power(umu0[b13],2.0) + 18.126 * umu0[b13] - \
+    Tddp[b13] = (-11.183 * np.power(umu0[b13], 2.0) + 18.126 * umu0[b13] - \
                  6.3417)*ade[b13]
     b14 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.8480) & \
           (umu0 <= 0.8987)
-    Tddp[b14] = (-163.36 * np.power(umu0[b14],2.0) + 283.35 * umu0[b14] \
+    Tddp[b14] = (-163.36 * np.power(umu0[b14], 2.0) + 283.35 * umu0[b14] \
                  - 121.91) * ade[b14]
     b15 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.8987) \
            & (umu0 <= 0.9396)
-    Tddp[b15] = (-202.72 * np.power(umu0[b15],2.0) + 368.75 * umu0[b15] \
+    Tddp[b15] = (-202.72 * np.power(umu0[b15], 2.0) + 368.75 * umu0[b15] \
                  - 166.75) * ade[b15]
     b16 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.9396) \
            & (umu0 <= 0.9702)
-    Tddp[b16] = (-181.72 * np.power(umu0[b16],2.0) + 343.59 * umu0[b16] \
+    Tddp[b16] = (-181.72 * np.power(umu0[b16], 2.0) + 343.59 * umu0[b16] \
                  - 161.3)*ade[b16]
     b17 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.9702) \
           & (umu0 <= 0.9945)
-    Tddp[b17] = (127.66 * np.power(umu0[b17],2.0) - 255.73 * umu0[b17] \
+    Tddp[b17] = (127.66 * np.power(umu0[b17], 2.0) - 255.73 * umu0[b17] \
                  + 129.03) * ade[b17]
     b18 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.9945)
-    Tddp[b18] = (908.66 * np.power(umu0[b18],2.0) - 1869.3 * umu0[b18] \
+    Tddp[b18] = (908.66 * np.power(umu0[b18], 2.0) - 1869.3 * umu0[b18] \
                  + 961.63) * ade[b18]
 
-    bde = 0.0000166112 * np.power(De,2.0) - 0.00410998 * De + 0.352026619
+    bde = 0.0000166112 * np.power(De, 2.0) - 0.00410998 * De + 0.352026619
     b19 = (umu0 < 0.999) & (De > 30.0) & (umu0 <= 0.2419)
-    Tddp[b19] = (-4.362 * np.power(umu0[b19],2.0) - 0.0878 * umu0[b19] \
+    Tddp[b19] = (-4.362 * np.power(umu0[b19], 2.0) - 0.0878 * umu0[b19] \
                  + 1.1218) * bde[b19]
     b20 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.2419) & (umu0 <= 0.3746)
-    Tddp[b20] = (-49.566 * np.power(umu0[b20],2.0) + 28.767 * umu0[b20] \
+    Tddp[b20] = (-49.566 * np.power(umu0[b20], 2.0) + 28.767 * umu0[b20] \
                  - 3.1299) * bde[b20]
     b21 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.3746) & (umu0 <= 0.4694)
-    Tddp[b21] = (58.572 * np.power(umu0[b21],2.0) - 49.5 * umu0[b21] \
+    Tddp[b21] = (58.572 * np.power(umu0[b21], 2.0) - 49.5 * umu0[b21] \
                  + 11.363) * bde[b21]
     b22 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.4694) & (umu0 <= 0.5877)
-    Tddp[b22] = (62.118 * np.power(umu0[b22],2.0) - 63.037 * umu0[b22]
+    Tddp[b22] = (62.118 * np.power(umu0[b22], 2.0) - 63.037 * umu0[b22]
                  + 16.875) * bde[b22]
     b23 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.5877) & (umu0 <= 0.6691)
-    Tddp[b23] = (-237.68 * np.power(umu0[b23],2.0) + 293.21 * umu0[b23]
+    Tddp[b23] = (-237.68 * np.power(umu0[b23], 2.0) + 293.21 * umu0[b23]
                  - 89.328) * bde[b23]
     b24 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.6691) & (umu0 <= 0.7660)
-    Tddp[b24] = (1.2051 * np.power(umu0[b24],2.0) - 0.7291 * umu0[b24]
+    Tddp[b24] = (1.2051 * np.power(umu0[b24], 2.0) - 0.7291 * umu0[b24]
                  + 0.8826) * bde[b24]
     b25 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.7660) & (umu0 <= 0.8480)
-    Tddp[b25] = (-55.6 * np.power(umu0[b25],2.0) + 90.698 * umu0[b25]
+    Tddp[b25] = (-55.6 * np.power(umu0[b25], 2.0) + 90.698 * umu0[b25]
                  - 35.905) * bde[b25]
     b26 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.8480) & (umu0 <= 0.8987)
-    Tddp[b26] = (-422.36 * np.power(umu0[b26],2.0) + 733.97 * umu0[b26]
+    Tddp[b26] = (-422.36 * np.power(umu0[b26], 2.0) + 733.97 * umu0[b26]
                  - 317.89) * bde[b26]
     b27 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.8987) & (umu0 <= 0.9396)
-    Tddp[b27] = (-457.09 * np.power(umu0[b27],2.0) + 831.11 * umu0[b27]
+    Tddp[b27] = (-457.09 * np.power(umu0[b27], 2.0) + 831.11 * umu0[b27]
                  - 376.85) * bde[b27]
     b28 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9396) & (umu0 <= 0.9702)
-    Tddp[b28] = (-344.91 * np.power(umu0[b28],2.0) + 655.67 * umu0[b28]
+    Tddp[b28] = (-344.91 * np.power(umu0[b28], 2.0) + 655.67 * umu0[b28]
                  -310.5) * bde[b28]
     b29 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9702) & (umu0 <= 0.9945)
-    Tddp[b29] = (622.85*np.power(umu0[b29],2.0) - 1227.6*umu0[b29]
+    Tddp[b29] = (622.85*np.power(umu0[b29], 2.0) - 1227.6*umu0[b29]
                  +605.97)*bde[b29]
     b30 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9945)
-    Tddp[b30] = (6309.63 * np.power(umu0[b30],2.0) - 12654.78 * umu0[b30]
+    Tddp[b30] = (6309.63 * np.power(umu0[b30], 2.0) - 12654.78 * umu0[b30]
                  + 6346.15) * bde[b30]
 
 ###compute Tddcld using Eq.(5) in Yang et al. (2022)
