@@ -1,5 +1,3 @@
-
-
 """
 PyTest file for FARMS-DNI
 
