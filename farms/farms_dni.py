@@ -29,6 +29,8 @@ def TDD2(Z, Ftotal, F1):
     Compute surface reflection that falls in the circumsolar region.
     A parameterization of Eq. (S4) in Xie et al (2020) is used.
 
+    All arrays should have the same shape (n_times) or (ntime, nlats, nlons)
+
     Parameters
     -----------
     Z:  np.ndarray
@@ -60,6 +62,8 @@ def TDDP(Z, tau, De, phase1, phase2):
     Compute cloud transmittance of DNI for water and ice clouds
     More details can be found in Xie et al. (2020)
 
+    All arrays should have the same shape (n_times) or (ntime, nlats, nlons)
+
     Parameters
     -----------
     Z:  np.ndarray
@@ -68,12 +72,12 @@ def TDDP(Z, tau, De, phase1, phase2):
         Cloud optical thickness (cld_opd_dcomp) (unitless).
     De: np.ndarray
         Effective cloud particle size (diameter, micron).
-    phase: np.ndarray
-        Cloud thermodynamic phase (water:1, ice:2)
     phase1: np.ndarray
         np.where( phase==1 )
+        phase is cloud thermodynamic phase (water:1, ice:2)
     phase2: np.ndarray
         np.where( phase==2 )
+        phase is cloud thermodynamic phase (water:1, ice:2)
 
     Returns
     -----------
@@ -93,6 +97,8 @@ def Pwater(Z, tau, De):
     The defination and use of the transmittance can be found in
      Xie et al. (2020)
     The cloud transmittance is parameterized by Yang et al. (2022)
+
+    All arrays should have the same shape (n_times) or (ntime, nlats, nlons)
 
     Parameters
     -----------
@@ -177,6 +183,8 @@ def Pice(Z, tau, De):
     The defination and use of the transmittance can be found in
      Xie et al. (2020)
     The cloud transmittance is parameterized by Yang et al. (2022)
+
+    All arrays should have the same shape (n_times) or (ntime, nlats, nlons)
 
     Parameters
     -----------
@@ -409,6 +417,8 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
     Yang, J., Xie, Y., Sengupta, M., Liu, Y., Long, H., 2022. Parameterization
     of cloud transmittance for expeditious assessment and forecasting of
     all-sky DNI. J. Renewable Sustainable Energy 14, 063703.
+
+    All arrays should have the same shape (n_times) or (ntime, nlats, nlons)
 
     Parameters
     -----------
