@@ -28,6 +28,22 @@ def TDD2(Z, Ftotal, F1):
     '''
     Compute surface reflection that falls in the circumsolar region.
     A parameterization of Eq. (S4) in Xie et al (2020) is used.
+
+    Parameters
+    -----------
+    Z:  np.ndarray
+        solar zenith angle (degree).
+    Ftotal: np.ndarray
+        GHI (Wm-2)
+    F1: np.ndarray
+        First order solar radiation given in FARMS (Wm-2).
+        See Xie et al. (2016) for more details.
+
+    Returns
+    -----------
+    Fd2: np.ndarray
+        Direct radiation caused by the reflection between
+        surface and cloud (Wm-2).
     '''
     # compute the integration of the solid angle
     a = 5.94991536e-03
@@ -43,6 +59,26 @@ def TDDP(Z, tau, De, phase1, phase2):
     '''
     Compute cloud transmittance of DNI for water and ice clouds
     More details can be found in Xie et al. (2020)
+
+    Parameters
+    -----------
+    Z:  np.ndarray
+        solar zenith angle (degree).
+    tau : np.ndarray
+        Cloud optical thickness (cld_opd_dcomp) (unitless).
+    De: np.ndarray
+        Effective cloud particle size (diameter, micron).
+    phase: np.ndarray
+        Cloud thermodynamic phase (water:1, ice:2)
+    phase1: np.ndarray
+        np.where( phase==1 )
+    phase2: np.ndarray
+        np.where( phase==2 )
+
+    Returns
+    -----------
+    Tddcld: np.ndarray
+        Cloud transmittance of DNI for the cloud
     '''
     Tddcld = np.zeros_like(tau)
     Tddcld[phase1] = Pwater(Z[phase1], tau[phase1], De[phase1])
@@ -57,6 +93,20 @@ def Pwater(Z, tau, De):
     The defination and use of the transmittance can be found in
      Xie et al. (2020)
     The cloud transmittance is parameterized by Yang et al. (2022)
+
+    Parameters
+    -----------
+    Z:  np.ndarray
+        solar zenith angle (degree).
+    tau : np.ndarray
+        Cloud optical thickness (cld_opd_dcomp) (unitless).
+    De: np.ndarray
+        Effective cloud particle size (diameter, micron).
+
+    Returns
+    -----------
+    Tddcld: np.ndarray
+        Cloud transmittance of DNI for the cloud
     '''
     umu0 = np.cos(Z * np.pi / 180.0)
     # taup  Eq.(3) in Yang et al. (2022)
@@ -127,6 +177,20 @@ def Pice(Z, tau, De):
     The defination and use of the transmittance can be found in
      Xie et al. (2020)
     The cloud transmittance is parameterized by Yang et al. (2022)
+
+    Parameters
+    -----------
+    Z:  np.ndarray
+        solar zenith angle (degree).
+    tau : np.ndarray
+        Cloud optical thickness (cld_opd_dcomp) (unitless).
+    De: np.ndarray
+        Effective cloud particle size (diameter, micron).
+
+    Returns
+    -----------
+    Tddcld: np.ndarray
+        Cloud transmittance of DNI for the cloud
     '''
     umu0 = np.cos(Z * np.pi / 180.0)
     # taup Eq.(3) in Yang et al. (2022)
