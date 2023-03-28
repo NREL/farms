@@ -319,7 +319,7 @@ def Pice(Z, tau, De):
 
 
 def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
-        Tddclr, Ftotal, F1):
+              Tddclr, Ftotal, F1):
     '''
     Fast All-sky Radiation Model for solar applications with direct normal
     irradiance (FARMS-DNI)
