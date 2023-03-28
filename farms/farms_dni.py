@@ -319,7 +319,7 @@ def Pice(Z, tau, De):
 
 
 def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
-     Tddclr, Ftotal, F1):
+    Tddclr, Ftotal, F1):
     '''
     Fast All-sky Radiation Model for solar applications with direct normal
     irradiance (FARMS-DNI)
@@ -380,9 +380,9 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
     taudni = np.zeros_like(tau)
     a1 = np.where((phase == 1) & (tau < 8.0))
     a2 = np.where((phase == 1) & (tau >= 8.0))
-    taudni[a1] = (0.254825 * tau[a1] - 0.00232717 * np.power(tau[a1], 2.0)  \
-        + (5.19320e-06) * np.power(tau[a1], 3.0)) * \
-        (1.0 + (8.0 - tau[a1]) * 0.07)
+    temp1 = 0.254825 * tau[a1] - 0.00232717 * tau[a1]**2.0 + \
+        5.19320e-06 * tau[a1]**3.0
+    taudni[a1] = temp1 * (1.0 + (8.0 - tau[a1]) * 0.07)
     taudni[a2] = 0.2 * np.power(tau[a2] - 8.0, 1.5) + 2.10871
 
     b1 = np.where((phase == 2) & (tau < 8.0))
