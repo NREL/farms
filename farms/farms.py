@@ -229,5 +229,7 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
         return fast_data
     else:
         # return only GHI
-        return np.where(clear_mask, np.nan, ghi), np.where(clear_mask, np.nan, dni_farmsdni), np.where(clear_mask, np.nan, dni0)
+        return np.where(clear_mask, np.nan, ghi),
+        np.where(clear_mask, np.nan, dni_farmsdni),
+        np.where(clear_mask, np.nan, dni0)
         # print( theta00, idx, muomega )
