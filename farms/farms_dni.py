@@ -318,8 +318,8 @@ def Pice(Z, tau, De):
     return Tddcld
 
 
-def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, \
-              Tddclr, Ftotal, F1):
+def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
+     Tddclr, Ftotal, F1):
     '''
     Fast All-sky Radiation Model for solar applications with direct normal
     irradiance (FARMS-DNI)
@@ -375,14 +375,14 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, \
          beam in the circumsolar region.
     '''
 
-    # scale tau for the computation of DNI. See Eqs. (3a and 3b) in 
+    # scale tau for the computation of DNI. See Eqs. (3a and 3b) in
     # Xie et al. (2020), iScience.
     taudni = np.zeros_like(tau)
     a1 = np.where((phase == 1) & (tau < 8.0))
     a2 = np.where((phase == 1) & (tau >= 8.0))
-    taudni[a1] = ( 0.254825 * tau[a1] - 0.00232717 * np.power(tau[a1], 2.0)  \
-             + (5.19320e-06) * np.power(tau[a1], 3.0) ) * \
-               (1.0 + (8.0 - tau[a1]) * 0.07)
+    taudni[a1] = (0.254825 * tau[a1] - 0.00232717 * np.power(tau[a1], 2.0)  \
+        + (5.19320e-06) * np.power(tau[a1], 3.0)) * \
+        (1.0 + (8.0 - tau[a1]) * 0.07)
     taudni[a2] = 0.2 * np.power(tau[a2] - 8.0, 1.5) + 2.10871
 
     b1 = np.where((phase == 2) & (tau < 8.0))
@@ -398,13 +398,13 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, \
     Tddcld0 = np.exp(-taudni / solar_zenith_angle)
     Fd0 = solar_zenith_angle * F0 * Tddcld0 * Tddclr
 
-    # compute scattered radiation in the circumsolar region. Eq.(S3 and S4) 
+    # compute scattered radiation in the circumsolar region. Eq.(S3 and S4)
     # in Xie et al. (2020), iScience.
     Tddcld1 = TDDP(Z, taudni, De, phase1, phase2)
     Fd1 = solar_zenith_angle * F0 * Tddclr * Tddcld1
     Fd2 = TDD2(Z, Ftotal, F1)
 
-    # compute DNI using the three components. Eq.(S1) in 
+    # compute DNI using the three components. Eq.(S1) in
     # Xie et al. (2020), iScience.
     Fd = Fd0 + Fd1 + Fd2
     dni_farmsdni = Fd / solar_zenith_angle
