@@ -346,7 +346,7 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
     of cloud transmittance for expeditious assessment and forecasting of
     all-sky DNI. J. Renewable Sustainable Energy 14, 063703.
 
-    Input data
+    Parameters
     -----------
     F0:  np.ndarray
         extraterrestrial solar radiation (Wm-2).
@@ -373,7 +373,7 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
         First order solar radiation given in FARMS (Wm-2).
         See Xie et al. (2016) for more details.
 
-    Output data
+    Returns
     -----------
     Fd: np.ndarray
         Direct radiation in the downwelling direction (Wm-2). It includes the
