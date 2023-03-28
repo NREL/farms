@@ -33,7 +33,6 @@ def TDD2(Z, Ftotal, F1):
     -----------
     Z:  np.ndarray
         solar zenith angle (degree).
-        Array shape is (n_time, n_sites).
     Ftotal: np.ndarray
         GHI (Wm-2)
     F1: np.ndarray
