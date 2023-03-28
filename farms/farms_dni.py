@@ -30,7 +30,7 @@ def TDD2(Z, Ftotal, F1):
     A parameterization of Eq. (S4) in Xie et al (2020) is used.
 
     All arrays should have the same shape (n_times) or
-    (n_times,n_lats,n_lons)
+    (n_times, n_lats, n_lons)
 
     Parameters
     -----------
@@ -64,7 +64,7 @@ def TDDP(Z, tau, De, phase1, phase2):
     More details can be found in Xie et al. (2020)
 
     All arrays should have the same shape (n_times) or
-    (n_times,n_lats,n_lons)
+    (n_times, n_lats, n_lons)
 
     Parameters
     -----------
@@ -101,7 +101,7 @@ def Pwater(Z, tau, De):
     The cloud transmittance is parameterized by Yang et al. (2022)
 
     All arrays should have the same shape (n_times) or
-    (n_times,n_lats,n_lons)
+    (n_times, n_lats, n_lons)
 
     Parameters
     -----------
