@@ -2,7 +2,7 @@
 This model updates the computation of DNI used for FARMS.
 The orignal FARMS use DISC model to compute cloudy-sky DNI.
 This new model uses a physics-based algorithm to solve the direct
-and scattered beam in the circumsolar region. 
+and scattered beam in the circumsolar region.
 
 Created on March 1, 2022
 Upgraded on March 21, 2023
@@ -54,7 +54,9 @@ def TDDP(Z, tau, De, phase1, phase2):
 def Pwater(Z, tau, De):
     '''
     Compute cloud transmittance for water clouds
-    More details can be found in Xie et al. (2020)
+    The defination and use of the transmittance can be found in
+     Xie et al. (2020)
+    The cloud transmittance is parameterized by Yang et al. (2022)
     '''
     umu0 = np.cos(Z * np.pi / 180.0)
     # taup  Eq.(3) in Yang et al. (2022)
@@ -122,7 +124,9 @@ def Pwater(Z, tau, De):
 def Pice(Z, tau, De):
     '''
     Compute cloud transmittance for ice clouds
-    More details can be found in Xie et al. (2020)
+    The defination and use of the transmittance can be found in
+     Xie et al. (2020)
+    The cloud transmittance is parameterized by Yang et al. (2022)
     '''
     umu0 = np.cos(Z * np.pi / 180.0)
     # taup Eq.(3) in Yang et al. (2022)
