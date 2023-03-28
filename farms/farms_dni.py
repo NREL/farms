@@ -230,12 +230,12 @@ def Pice(Z, tau, De):
         (umu0 <= 0.8987)
     Tddp[b14] = \
         (-163.36 * np.power(umu0[b14], 2.0) + 283.35 * umu0[b14] - 121.91) *\
-         ade[b14]
+        ade[b14]
     b15 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.8987) \
         & (umu0 <= 0.9396)
     Tddp[b15] = \
         (-202.72 * np.power(umu0[b15], 2.0) + 368.75 * umu0[b15] - 166.75) *\
-         ade[b15]
+        ade[b15]
     b16 = (umu0 < 0.999) & (De > 10.0) & (De <= 30.0) & (umu0 > 0.9396) \
         & (umu0 <= 0.9702)
     Tddp[b16] = \
@@ -287,21 +287,21 @@ def Pice(Z, tau, De):
     b27 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.8987) & (umu0 <= 0.9396)
     Tddp[b27] = \
         (-457.09 * np.power(umu0[b27], 2.0) + 831.11 * umu0[b27] - 376.85) *\
-         bde[b27]
+        bde[b27]
     b28 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9396) & (umu0 <= 0.9702)
     Tddp[b28] = \
         (-344.91 * np.power(umu0[b28], 2.0) + 655.67 * umu0[b28] -310.5) *\
-         bde[b28]
+        bde[b28]
     b29 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9702) & (umu0 <= 0.9945)
     Tddp[b29] = \
-        (622.85*np.power(umu0[b29], 2.0) - 1227.6*umu0[b29] +605.97) *\
+        (622.85 * np.power(umu0[b29], 2.0) - 1227.6 * umu0[b29] + 605.97) *\
         bde[b29]
     b30 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9945)
     Tddp[b30] = \
-        (6309.63 * np.power(umu0[b30], 2.0) - 12654.78 * umu0[b30] + 6346.15) *\
-         bde[b30]
+        (6309.63 * np.power(umu0[b30], 2.0) - 12654.78 * umu0[b30] + 6346.15)\
+        * bde[b30]
 
-###compute Tddcld using Eq.(5) in Yang et al. (2022)
+    # compute Tddcld using Eq.(5) in Yang et al. (2022)
     a = 1.7686 * np.power(umu0, -0.95)
     b = 7.117 * np.power(umu0, 1.9658)
 
@@ -310,31 +310,32 @@ def Pice(Z, tau, De):
     Tddcld[a1] = Tddp[a1] * np.tanh(a[a1] * tau[a1])
     a2 = (tau > 0.9 * taup) & (tau < taup)
     Tddcld[a2] = Tddp[a2] * np.tanh(0.9 * a[a2] * taup[a2]) + \
-                 Tddp[a2] * (np.tanh(b[a2] / np.power(taup[a2],2.0)) \
-                  - np.tanh(0.9 * a[a2] * taup[a2])) * \
-                 (tau[a2] - 0.9 * taup[a2]) / (0.1 * taup[a2])
+        Tddp[a2] * (np.tanh(b[a2] / np.power(taup[a2], 2.0)) \
+        - np.tanh(0.9 * a[a2] * taup[a2])) * \
+        (tau[a2] - 0.9 * taup[a2]) / (0.1 * taup[a2])
     a3 = tau >= taup
-    Tddcld[a3] = Tddp[a3] * np.tanh(b[a3] / np.power(tau[a3],2.0))
+    Tddcld[a3] = Tddp[a3] * np.tanh(b[a3] / np.power(tau[a3], 2.0))
 
     return Tddcld
 
 
-def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, Tddclr, Ftotal, F1):
+def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, \
+    Tddclr, Ftotal, F1):
     '''
     Fast All-sky Radiation Model for solar applications with direct normal
     irradiance (FARMS-DNI)
 
     References
     -----------
-    Xie, Y., Sengupta, M., Dudhia, J., 2016. A Fast All-sky Radiation Model for
-    Solar applications (FARMS): Algorithm and performance evaluation. Sol. Energy
-     135, 435-445.
-    Xie, Y., Sengupta, M., Liu, Y., Long, H., Min, Q., Liu, W., Habte, A., 2020.
-    A physics-based DNI model assessing all-sky circumsolar radiation. iScience 22,
-     doi.org/10.1016/j.isci.2020.100893.
-    Yang, J., Xie, Y., Sengupta, M., Liu, Y., Long, H., 2022. Parameterization of
-    cloud transmittance for expeditious assessment and forecasting of all-sky DNI.
-    J. Renewable Sustainable Energy 14, 063703.
+    Xie, Y., Sengupta, M., Dudhia, J., 2016. A Fast All-sky Radiation Model
+    for Solar applications (FARMS): Algorithm and performance evaluation.
+    Sol. Energy 135, 435-445.
+    Xie, Y., Sengupta, M., Liu, Y., Long, H., Min, Q., Liu, W., Habte, A.,
+     2020. A physics-based DNI model assessing all-sky circumsolar radiation.
+    iScience 22, doi.org/10.1016/j.isci.2020.100893.
+    Yang, J., Xie, Y., Sengupta, M., Liu, Y., Long, H., 2022. Parameterization
+    of cloud transmittance for expeditious assessment and forecasting of
+    all-sky DNI. J. Renewable Sustainable Energy 14, 063703.
 
     Input data
     -----------
@@ -360,8 +361,8 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, Tddclr, Ft
     Ftotal: np.ndarray
         GHI (Wm-2)
     F1: np.ndarray
-        First order solar radiation given in FARMS (Wm-2). See Xie et al. (2016)
-        for more details.
+        First order solar radiation given in FARMS (Wm-2).
+        See Xie et al. (2016) for more details.
 
     Output data
     -----------
@@ -371,11 +372,12 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, Tddclr, Ft
     dni_farmsdni: np.ndarray
         DNI computed by FARMS-DNI (Wm-2).
     dni0: np.ndarray
-        DNI computed by the Lambert law (Wm-2). It only includes the narrow beam
-         in the circumsolar region.
+        DNI computed by the Lambert law (Wm-2). It only includes the narrow
+         beam in the circumsolar region.
     '''
 
-    # scale tau for the computation of DNI. See Eqs. (3a and 3b) in Xie et al. (2020), iScience.
+    # scale tau for the computation of DNI. See Eqs. (3a and 3b) in 
+    # Xie et al. (2020), iScience.
     taudni = np.zeros_like(tau)
 
     a1 = np.where( (phase == 1) & (tau < 8.0) )
