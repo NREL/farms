@@ -29,7 +29,8 @@ def TDD2(Z, Ftotal, F1):
     Compute surface reflection that falls in the circumsolar region.
     A parameterization of Eq. (S4) in Xie et al (2020) is used.
 
-    All arrays should have the same shape (n_times) or (ntimes, nlats, nlons)
+    All arrays should have the same shape (n_times) or
+    (n_times,n_lats,n_lons)
 
     Parameters
     -----------
@@ -62,7 +63,8 @@ def TDDP(Z, tau, De, phase1, phase2):
     Compute cloud transmittance of DNI for water and ice clouds
     More details can be found in Xie et al. (2020)
 
-    All arrays should have the same shape (n_times) or (ntimes, nlats, nlons)
+    All arrays should have the same shape (n_times) or
+    (n_times,n_lats,n_lons)
 
     Parameters
     -----------
@@ -98,7 +100,8 @@ def Pwater(Z, tau, De):
      Xie et al. (2020)
     The cloud transmittance is parameterized by Yang et al. (2022)
 
-    All arrays should have the same shape (n_times) or (ntimes, nlats, nlons)
+    All arrays should have the same shape (n_times) or
+    (n_times,n_lats,n_lons)
 
     Parameters
     -----------
@@ -184,7 +187,8 @@ def Pice(Z, tau, De):
      Xie et al. (2020)
     The cloud transmittance is parameterized by Yang et al. (2022)
 
-    All arrays should have the same shape (n_times) or (ntimes, nlats, nlons)
+    All arrays should have the same shape (n_times) or
+    (n_times, n_lats, n_lons)
 
     Parameters
     -----------
@@ -418,7 +422,8 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
     of cloud transmittance for expeditious assessment and forecasting of
     all-sky DNI. J. Renewable Sustainable Energy 14, 063703.
 
-    All arrays should have the same shape (n_times) or (ntimes, nlats, nlons)
+    All arrays should have the same shape (n_times) or
+    (n_times, n_lats, n_lons)
 
     Parameters
     -----------
