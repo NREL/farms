@@ -290,7 +290,7 @@ def Pice(Z, tau, De):
         bde[b27]
     b28 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9396) & (umu0 <= 0.9702)
     Tddp[b28] = \
-        (-344.91 * np.power(umu0[b28], 2.0) + 655.67 * umu0[b28] -310.5) *\
+        (-344.91 * np.power(umu0[b28], 2.0) + 655.67 * umu0[b28] - 310.5) *\
         bde[b28]
     b29 = (umu0 < 0.999) & (De > 30.0) & (umu0 > 0.9702) & (umu0 <= 0.9945)
     Tddp[b29] = \
@@ -309,9 +309,8 @@ def Pice(Z, tau, De):
     a1 = tau <= 0.9 * taup
     Tddcld[a1] = Tddp[a1] * np.tanh(a[a1] * tau[a1])
     a2 = (tau > 0.9 * taup) & (tau < taup)
-    Tddcld[a2] = Tddp[a2] * np.tanh(0.9 * a[a2] * taup[a2]) + \
-        Tddp[a2] * (np.tanh(b[a2] / np.power(taup[a2], 2.0)) \
-        - np.tanh(0.9 * a[a2] * taup[a2])) * \
+    Tddcld[a2] = Tddp[a2] * np.tanh(0.9 * a[a2] * taup[a2]) + Tddp[a2] *\
+        (np.tanh(b[a2] / taup[a2]**2.0) - np.tanh(0.9 * a[a2] * taup[a2])) *\
         (tau[a2] - 0.9 * taup[a2]) / (0.1 * taup[a2])
     a3 = tau >= taup
     Tddcld[a3] = Tddp[a3] * np.tanh(b[a3] / np.power(tau[a3], 2.0))
@@ -320,7 +319,7 @@ def Pice(Z, tau, De):
 
 
 def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, \
-    Tddclr, Ftotal, F1):
+              Tddclr, Ftotal, F1):
     '''
     Fast All-sky Radiation Model for solar applications with direct normal
     irradiance (FARMS-DNI)
@@ -379,18 +378,17 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, \
     # scale tau for the computation of DNI. See Eqs. (3a and 3b) in 
     # Xie et al. (2020), iScience.
     taudni = np.zeros_like(tau)
-
-    a1 = np.where( (phase == 1) & (tau < 8.0) )
-    a2 = np.where( (phase == 1) & (tau >= 8.0) )
+    a1 = np.where((phase == 1) & (tau < 8.0))
+    a2 = np.where((phase == 1) & (tau >= 8.0))
     taudni[a1] = ( 0.254825 * tau[a1] - 0.00232717 * np.power(tau[a1], 2.0)  \
              + (5.19320e-06) * np.power(tau[a1], 3.0) ) * \
                (1.0 + (8.0 - tau[a1]) * 0.07)
     taudni[a2] = 0.2 * np.power(tau[a2] - 8.0, 1.5) + 2.10871
 
-    b1 = np.where( (phase == 2) & (tau < 8.0) )
-    b2 = np.where( (phase == 2) & (tau >= 8.0) )
+    b1 = np.where((phase == 2) & (tau < 8.0))
+    b2 = np.where((phase == 2) & (tau >= 8.0))
     taudni[b1] = 0.345353 * tau[b1] - 0.00244671 * np.power(tau[b1], 2.0)  \
-             + (4.74263E-06) * np.power(tau[b1], 3.0)
+        + (4.74263E-06) * np.power(tau[b1], 3.0)
     taudni[b2] = 0.2 * np.power(tau[b2] - 8.0, 1.5) + 2.91345
 
     # compute DNI in the narrow beam. Eq.(S2) in Xie et al. (2020), iScience.
@@ -400,17 +398,15 @@ def farms_dni(F0, tau, solar_zenith_angle, De, phase, phase1, phase2, \
     Tddcld0 = np.exp(-taudni / solar_zenith_angle)
     Fd0 = solar_zenith_angle * F0 * Tddcld0 * Tddclr
 
-    # compute scattered radiation in the circumsolar region. Eq.(S3 and S4) in Xie et al. (2020), iScience.
+    # compute scattered radiation in the circumsolar region. Eq.(S3 and S4) 
+    # in Xie et al. (2020), iScience.
     Tddcld1 = TDDP(Z, taudni, De, phase1, phase2)
     Fd1 = solar_zenith_angle * F0 * Tddclr * Tddcld1
-    Fd2 = TDD2(Z, Ftotal, F1 )
+    Fd2 = TDD2(Z, Ftotal, F1)
 
-    # compute DNI using the three components. Eq.(S1) in Xie et al. (2020), iScience.
+    # compute DNI using the three components. Eq.(S1) in 
+    # Xie et al. (2020), iScience.
     Fd = Fd0 + Fd1 + Fd2
     dni_farmsdni = Fd / solar_zenith_angle
 
     return Fd, dni_farmsdni, dni0
-
-
-
-
