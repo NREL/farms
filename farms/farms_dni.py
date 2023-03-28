@@ -17,8 +17,6 @@ J. Renewable Sustainable Energy 14, 063703.
 """
 
 import numpy as np
-import sys
-import pandas as pd
 
 
 def TDD2(Z, Ftotal, F1):
