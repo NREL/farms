@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>farms.utilities &mdash; farms 1.0.5 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            farms
+          </a>
+              <div class="version">
+                1.0.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_farms/farms.html">farms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_farms/farms.disc.html">farms.disc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.disc.disc.html">farms.disc.disc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.disc.disc.html#farms.disc.disc"><code class="docutils literal notranslate"><span class="pre">disc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_farms/farms.farms.farms.html">farms.farms.farms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.farms.farms.html#farms.farms.farms"><code class="docutils literal notranslate"><span class="pre">farms()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_farms/farms.utilities.html">farms.utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.calc_beta.html">farms.utilities.calc_beta</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.calc_beta.html#farms.utilities.calc_beta"><code class="docutils literal notranslate"><span class="pre">calc_beta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.calc_dhi.html">farms.utilities.calc_dhi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.calc_dhi.html#farms.utilities.calc_dhi"><code class="docutils literal notranslate"><span class="pre">calc_dhi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.check_range.html">farms.utilities.check_range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.check_range.html#farms.utilities.check_range"><code class="docutils literal notranslate"><span class="pre">check_range()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.cloud_variability.html">farms.utilities.cloud_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.cloud_variability.html#farms.utilities.cloud_variability"><code class="docutils literal notranslate"><span class="pre">cloud_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.dark_night.html">farms.utilities.dark_night</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.dark_night.html#farms.utilities.dark_night"><code class="docutils literal notranslate"><span class="pre">dark_night()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.linear_variability.html">farms.utilities.linear_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.linear_variability.html#farms.utilities.linear_variability"><code class="docutils literal notranslate"><span class="pre">linear_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.merge_rest_farms.html">farms.utilities.merge_rest_farms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.merge_rest_farms.html#farms.utilities.merge_rest_farms"><code class="docutils literal notranslate"><span class="pre">merge_rest_farms()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.normal_variability.html">farms.utilities.normal_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.normal_variability.html#farms.utilities.normal_variability"><code class="docutils literal notranslate"><span class="pre">normal_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.rayleigh.html">farms.utilities.rayleigh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.rayleigh.html#farms.utilities.rayleigh"><code class="docutils literal notranslate"><span class="pre">rayleigh()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.screen_cld.html">farms.utilities.screen_cld</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.screen_cld.html#farms.utilities.screen_cld"><code class="docutils literal notranslate"><span class="pre">screen_cld()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.screen_sza.html">farms.utilities.screen_sza</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.screen_sza.html#farms.utilities.screen_sza"><code class="docutils literal notranslate"><span class="pre">screen_sza()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.ti_to_radius.html">farms.utilities.ti_to_radius</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.ti_to_radius.html#farms.utilities.ti_to_radius"><code class="docutils literal notranslate"><span class="pre">ti_to_radius()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.ti_to_radius_csv.html">farms.utilities.ti_to_radius_csv</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.ti_to_radius_csv.html#farms.utilities.ti_to_radius_csv"><code class="docutils literal notranslate"><span class="pre">ti_to_radius_csv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.tri_variability.html">farms.utilities.tri_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.tri_variability.html#farms.utilities.tri_variability"><code class="docutils literal notranslate"><span class="pre">tri_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../_farms/farms.utilities.uniform_variability.html">farms.utilities.uniform_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../_farms/farms.utilities.uniform_variability.html#farms.utilities.uniform_variability"><code class="docutils literal notranslate"><span class="pre">uniform_variability()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_farms/farms.version.html">farms.version</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">farms</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">farms.utilities</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for farms.utilities</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Common utilities FARMS module.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+<span class="kn">from</span> <span class="nn">farms</span> <span class="kn">import</span> <span class="n">RADIUS</span><span class="p">,</span> <span class="n">CLEAR_TYPES</span><span class="p">,</span> <span class="n">CLOUD_TYPES</span><span class="p">,</span> <span class="n">SZA_LIM</span>
+
+
+<div class="viewcode-block" id="check_range"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.check_range">[docs]</a><span class="k">def</span> <span class="nf">check_range</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">rang</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure that data values are in correct range.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">rang</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">rang</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Variable &quot;</span><span class="si">{n}</span><span class="s1">&quot; is out of expected &#39;</span>
+                         <span class="s1">&#39;transmittance/reflectance range. Recommend checking &#39;</span>
+                         <span class="s1">&#39;solar zenith angle to ensure cos(sza) is &#39;</span>
+                         <span class="s1">&#39;non-negative and non-zero. &#39;</span>
+                         <span class="s1">&#39;Max/min of </span><span class="si">{n}</span><span class="s1"> = </span><span class="si">{mx}</span><span class="s1">/</span><span class="si">{mn}</span><span class="s1">&#39;</span>
+                         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                                 <span class="n">mx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                                 <span class="n">mn</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="ti_to_radius_csv"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.ti_to_radius_csv">[docs]</a><span class="k">def</span> <span class="nf">ti_to_radius_csv</span><span class="p">(</span><span class="n">time_index</span><span class="p">,</span> <span class="n">n_cols</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a time index to radius.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    time_index : pandas.core.indexes.datetimes.DatetimeIndex</span>
+<span class="sd">        NSRDB time series. Can extract from h5 as follows:</span>
+<span class="sd">        time_index = pd.to_datetime(h5[&#39;time_index&#39;][...].astype(str))</span>
+<span class="sd">    n_cols : int</span>
+<span class="sd">        Number of columns to output. The radius vertical 1D array will be</span>
+<span class="sd">        copied this number of times horizontally (np.tile).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    radius : np.array</span>
+<span class="sd">        Array of radius values matching the time index.</span>
+<span class="sd">        Shape is (len(time_index), n_cols).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">doy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">time_index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">doy</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RADIUS</span><span class="p">)</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">radius</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">radius</span></div>
+
+
+<div class="viewcode-block" id="ti_to_radius"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.ti_to_radius">[docs]</a><span class="k">def</span> <span class="nf">ti_to_radius</span><span class="p">(</span><span class="n">time_index</span><span class="p">,</span> <span class="n">n_cols</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates Earth-Sun Radius Vector.</span>
+
+<span class="sd">    Reference:</span>
+<span class="sd">    http://www.nrel.gov/docs/fy08osti/34302.pdf</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    time_index : pandas.core.indexes.datetimes.DatetimeIndex</span>
+<span class="sd">        NSRDB time series. Can extract from h5 as follows:</span>
+<span class="sd">        time_index = pd.to_datetime(h5[&#39;time_index&#39;][...].astype(str))</span>
+<span class="sd">    n_cols : int</span>
+<span class="sd">        Number of columns to output. The radius vertical 1D array will be</span>
+<span class="sd">        copied this number of times horizontally (np.tile).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    radius : np.array</span>
+<span class="sd">        Array of radius values matching the time index.</span>
+<span class="sd">        Shape is (len(time_index), n_cols).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># load earth periodic table</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;earth_periodic_terms.csv&#39;</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># 3.1.1 (4). Julian Date.</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">time_index</span><span class="o">.</span><span class="n">to_julian_date</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+    <span class="c1"># 3.1.2 (5). Julian Ephermeris Date</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mf">64.797</span> <span class="o">/</span> <span class="mi">86400</span>
+    <span class="c1"># 3.1.3 (7). Julian Century Ephemeris</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">2451545</span><span class="p">)</span> <span class="o">/</span> <span class="mi">36525</span>
+    <span class="c1"># 3.1.4 (8). Julian Ephemeris Millennium</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">/</span> <span class="mi">10</span>
+    <span class="n">df_jme</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;uid&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">j</span><span class="p">)),</span> <span class="s1">&#39;jme&#39;</span><span class="p">:</span> <span class="n">j</span><span class="p">,</span> <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="c1"># Merge JME with Periodic Table</span>
+    <span class="n">df_merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_jme</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+    <span class="c1"># 3.2.1 (9). Heliocentric radius vector.</span>
+    <span class="n">df_merge</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_merge</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">df_merge</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df_merge</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+                                           <span class="o">*</span> <span class="n">df_merge</span><span class="p">[</span><span class="s1">&#39;jme&#39;</span><span class="p">])</span>
+    <span class="c1"># 3.2.2 (10).</span>
+    <span class="n">dfs</span> <span class="o">=</span> <span class="n">df_merge</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;uid&#39;</span><span class="p">,</span> <span class="s1">&#39;term&#39;</span><span class="p">])[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+    <span class="c1"># 3.2.4 (11). Earth Heliocentric radius vector</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="p">((</span><span class="n">dfs</span><span class="p">[</span><span class="s1">&#39;R0&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">dfs</span><span class="p">[</span><span class="s1">&#39;R1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">j</span> <span class="o">+</span> <span class="n">dfs</span><span class="p">[</span><span class="s1">&#39;R2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+               <span class="o">+</span> <span class="n">dfs</span><span class="p">[</span><span class="s1">&#39;R3&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">dfs</span><span class="p">[</span><span class="s1">&#39;R4&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+               <span class="o">+</span> <span class="n">dfs</span><span class="p">[</span><span class="s1">&#39;R5&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">time_index</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">radius</span></div>
+
+
+<div class="viewcode-block" id="calc_beta"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.calc_beta">[docs]</a><span class="k">def</span> <span class="nf">calc_beta</span><span class="p">(</span><span class="n">aod</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the Angstrom turbidity coeff. (beta).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    aod : np.ndarray</span>
+<span class="sd">        Array of aerosol optical depth (AOD) values. Shape must match alpha.</span>
+<span class="sd">    alpha : np.ndarray</span>
+<span class="sd">        Array of angstrom wavelength exponent values. Shape must match aod.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    beta : np.ndarray</span>
+<span class="sd">        Array of Angstrom turbidity coeff., i.e. AOD at 1000 nm.</span>
+<span class="sd">        Shape will be same as aod and alpha. Will be tested for compliance</span>
+<span class="sd">        with the mandatory interval [0, 2.2].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">aod</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">alpha</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;To calculate beta, aod and alpha inputs must be of &#39;</span>
+                         <span class="s1">&#39;the same shape. Received arrays of shape </span><span class="si">{}</span><span class="s1"> and </span><span class="si">{}</span><span class="s1">&#39;</span>
+                         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">aod</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">alpha</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">aod</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">2.2</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Calculation of beta resulted in values outside of &#39;</span>
+             <span class="s1">&#39;expected range [0, 2.2]. Min/max of beta are: </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span>
+             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">beta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">beta</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">beta</span></div>
+
+
+<div class="viewcode-block" id="calc_dhi"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.calc_dhi">[docs]</a><span class="k">def</span> <span class="nf">calc_dhi</span><span class="p">(</span><span class="n">dni</span><span class="p">,</span> <span class="n">ghi</span><span class="p">,</span> <span class="n">sza</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the diffuse horizontal irradiance and correct the direct.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dni : np.ndarray</span>
+<span class="sd">        Direct normal irradiance.</span>
+<span class="sd">    ghi : np.ndarray</span>
+<span class="sd">        Global horizontal irradiance.</span>
+<span class="sd">    sza : np.ndarray</span>
+<span class="sd">        Solar zenith angle (degrees).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dhi : np.ndarray</span>
+<span class="sd">        Diffuse horizontal irradiance. This is ensured to be non-negative.</span>
+<span class="sd">    dni : np.ndarray</span>
+<span class="sd">        Direct normal irradiance. This is set to zero where dhi &lt; 0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dhi</span> <span class="o">=</span> <span class="n">ghi</span> <span class="o">-</span> <span class="n">dni</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">sza</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">dhi</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># patch for negative DHI values. Set DNI to zero, set DHI to GHI</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dhi</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">dni</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">dhi</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">ghi</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">dhi</span><span class="p">,</span> <span class="n">dni</span></div>
+
+
+<div class="viewcode-block" id="rayleigh"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.rayleigh">[docs]</a><span class="k">def</span> <span class="nf">rayleigh</span><span class="p">(</span><span class="n">dhi</span><span class="p">,</span> <span class="n">cs_dhi</span><span class="p">,</span> <span class="n">fill_flag</span><span class="p">,</span> <span class="n">rayleigh_flag</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform Rayleigh violation check (all-sky diffuse &gt;= clearsky diffuse).</span>
+
+<span class="sd">    Decided not to use this in all-sky on 7/3/2019</span>
+
+<span class="sd">    Failed data gets filled with farms data</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dhi : np.ndarray</span>
+<span class="sd">        All-sky diffuse irradiance.</span>
+<span class="sd">    cs_dhi : np.ndarray</span>
+<span class="sd">        Clearsky (rest) diffuse irradiance.</span>
+<span class="sd">    fill_flag : np.ndarray</span>
+<span class="sd">        Array of integers signifying whether irradiance has been filled.</span>
+<span class="sd">    rayleigh_flag : int</span>
+<span class="sd">        Fill flag for rayleigh violation.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fill_flag : np.ndarray</span>
+<span class="sd">        Array of integers signifying whether irradiance has been filled, with</span>
+<span class="sd">        rayleigh violations marked with the rayleigh flag.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># boolean mask where the rayleigh check fails</span>
+    <span class="c1"># (compare agains 99.9% to avoid false positives)</span>
+    <span class="n">failed</span> <span class="o">=</span> <span class="p">(</span><span class="n">dhi</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.999</span> <span class="o">*</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">cs_dhi</span><span class="p">)))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cs_dhi</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">fill_flag</span><span class="p">[</span><span class="n">failed</span><span class="p">]</span> <span class="o">=</span> <span class="n">rayleigh_flag</span>
+
+    <span class="k">return</span> <span class="n">fill_flag</span></div>
+
+
+<div class="viewcode-block" id="merge_rest_farms"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.merge_rest_farms">[docs]</a><span class="k">def</span> <span class="nf">merge_rest_farms</span><span class="p">(</span><span class="n">clearsky_irrad</span><span class="p">,</span> <span class="n">cloudy_irrad</span><span class="p">,</span> <span class="n">cloud_type</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Combine clearsky and rest data into all-sky irradiance array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clearsky_irrad : np.ndarray</span>
+<span class="sd">        Clearsky irradiance data from REST.</span>
+<span class="sd">    cloudy_irrad : np.ndarray</span>
+<span class="sd">        Cloudy irradiance data from FARMS.</span>
+<span class="sd">    cloud_type : np.ndarray</span>
+<span class="sd">        Cloud type array which acts as a mask specifying where to take</span>
+<span class="sd">        cloud/clear data.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    all_sky_irrad : np.ndarray</span>
+<span class="sd">        All-sky (cloudy + clear) irradiance data, merged dataset from</span>
+<span class="sd">        FARMS and REST.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># disable nan warnings</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+    <span class="c1"># combine clearsky and farms according to the cloud types.</span>
+    <span class="n">all_sky_irrad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">cloud_type</span><span class="p">,</span> <span class="n">CLEAR_TYPES</span><span class="p">),</span>
+                             <span class="n">clearsky_irrad</span><span class="p">,</span> <span class="n">cloudy_irrad</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">all_sky_irrad</span></div>
+
+
+<div class="viewcode-block" id="screen_cld"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.screen_cld">[docs]</a><span class="k">def</span> <span class="nf">screen_cld</span><span class="p">(</span><span class="n">cld_data</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">160</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enforce a numeric range on cloud property data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cld_data : np.ndarray</span>
+<span class="sd">        Cloud property data (cld_opd_dcomp, cld_reff_dcomp).</span>
+<span class="sd">    rng : list | tuple</span>
+<span class="sd">        Inclusive intended range of the cloud data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cld_data : np.ndarray</span>
+<span class="sd">        Cloud property data (cld_opd_dcomp, cld_reff_dcomp)</span>
+<span class="sd">        with min/max values equal to rng.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cld_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">cld_data</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cld_data</span><span class="p">[(</span><span class="n">cld_data</span> <span class="o">&lt;</span> <span class="n">rng</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cld_data</span><span class="p">[(</span><span class="n">cld_data</span> <span class="o">&gt;</span> <span class="n">rng</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="n">rng</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">cld_data</span></div>
+
+
+<div class="viewcode-block" id="screen_sza"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.screen_sza">[docs]</a><span class="k">def</span> <span class="nf">screen_sza</span><span class="p">(</span><span class="n">sza</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="n">SZA_LIM</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enforce an upper limit on the solar zenith angle.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sza : np.ndarray</span>
+<span class="sd">        Solar zenith angle in degrees.</span>
+<span class="sd">    lim : int | float</span>
+<span class="sd">        Upper limit of SZA in degrees.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sza : np.ndarray</span>
+<span class="sd">        Solar zenith angle in degrees with max value = lim.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sza</span><span class="p">[(</span><span class="n">sza</span> <span class="o">&gt;</span> <span class="n">lim</span><span class="p">)]</span> <span class="o">=</span> <span class="n">lim</span>
+
+    <span class="k">return</span> <span class="n">sza</span></div>
+
+
+<div class="viewcode-block" id="dark_night"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.dark_night">[docs]</a><span class="k">def</span> <span class="nf">dark_night</span><span class="p">(</span><span class="n">irrad_data</span><span class="p">,</span> <span class="n">sza</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="n">SZA_LIM</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enforce zero irradiance when solar angle &gt;= threshold.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    irrad_data : np.ndarray</span>
+<span class="sd">        DHI, DNI, or GHI.</span>
+<span class="sd">    sza : np.ndarray</span>
+<span class="sd">        Solar zenith angle in degrees.</span>
+<span class="sd">    lim : int | float</span>
+<span class="sd">        Upper limit of SZA in degrees.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    irrad_data : np.ndarray</span>
+<span class="sd">        DHI, DNI, or GHI with zero values when sza &gt;= lim.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">night_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sza</span> <span class="o">&gt;=</span> <span class="n">lim</span><span class="p">)</span>
+    <span class="n">irrad_data</span><span class="p">[</span><span class="n">night_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">irrad_data</span></div>
+
+
+<div class="viewcode-block" id="cloud_variability"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.cloud_variability">[docs]</a><span class="k">def</span> <span class="nf">cloud_variability</span><span class="p">(</span><span class="n">irrad</span><span class="p">,</span> <span class="n">cs_irrad</span><span class="p">,</span> <span class="n">cloud_type</span><span class="p">,</span> <span class="n">var_frac</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+                      <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;tri&#39;</span><span class="p">,</span> <span class="n">tri_center</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                      <span class="n">random_seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add syntehtic variability to irradiance when it&#39;s cloudy.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    irrad : np.ndarray</span>
+<span class="sd">        Full FARMS + REST2 merged irradiance 2D array.</span>
+<span class="sd">    cs_irrad : np.ndarray</span>
+<span class="sd">        REST2 clearsky irradiance without bad or missing data.</span>
+<span class="sd">    cloud_type : np.ndarray</span>
+<span class="sd">        Array of numerical cloud types.</span>
+<span class="sd">    var_frac : float</span>
+<span class="sd">        Maximum variability fraction (0.05 is 5% variability) or if</span>
+<span class="sd">        distribution is &quot;normal&quot; this is the maximum relative standard</span>
+<span class="sd">        deviation of the Variability.</span>
+<span class="sd">    distribution : str</span>
+<span class="sd">        Distribution shape of the Variability. Can be uniform or normal.</span>
+<span class="sd">    option : str</span>
+<span class="sd">        Variability function option (&#39;tri&#39; or &#39;linear&#39;).</span>
+<span class="sd">    random_seed : int | NoneType</span>
+<span class="sd">        Number to seed the numpy random number generator. Used to generate</span>
+<span class="sd">        reproducable psuedo-random cloud variability. Numpy random will be</span>
+<span class="sd">        seeded with the system time if this is None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    irrad : np.ndarray</span>
+<span class="sd">        Full FARMS + REST2 merged irradiance 2D array with variability added</span>
+<span class="sd">        to cloudy timesteps.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># disable divide by zero warnings</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">var_frac</span><span class="p">:</span>
+        <span class="c1"># set a seed for psuedo-random but repeatable results</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">random_seed</span><span class="p">)</span>
+
+        <span class="c1"># update the clearsky ratio (1 is clear, 0 is cloudy or dark)</span>
+        <span class="n">csr</span> <span class="o">=</span> <span class="n">irrad</span> <span class="o">/</span> <span class="n">cs_irrad</span>
+        <span class="c1"># Set the cloud/clear ratio to zero when it&#39;s nighttime</span>
+        <span class="n">csr</span><span class="p">[(</span><span class="n">cs_irrad</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">distribution</span> <span class="o">==</span> <span class="s1">&#39;uniform&#39;</span><span class="p">:</span>
+            <span class="n">variability_scalar</span> <span class="o">=</span> <span class="n">uniform_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">cloud_type</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">,</span>
+                                                     <span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
+                                                     <span class="n">tri_center</span><span class="o">=</span><span class="n">tri_center</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">distribution</span> <span class="o">==</span> <span class="s1">&#39;normal&#39;</span><span class="p">:</span>
+            <span class="n">variability_scalar</span> <span class="o">=</span> <span class="n">normal_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">cloud_type</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">,</span>
+                                                    <span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
+                                                    <span class="n">tri_center</span><span class="o">=</span><span class="n">tri_center</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Did not recognize distribution: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">distribution</span><span class="p">))</span>
+
+        <span class="n">irrad</span> <span class="o">*=</span> <span class="n">variability_scalar</span>
+
+    <span class="k">return</span> <span class="n">irrad</span></div>
+
+
+<div class="viewcode-block" id="uniform_variability"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.uniform_variability">[docs]</a><span class="k">def</span> <span class="nf">uniform_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">cloud_type</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;tri&#39;</span><span class="p">,</span>
+                        <span class="n">tri_center</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get an array with uniform variability scalars centered at 1 that can be</span>
+<span class="sd">    multiplied by a irradiance array with the same shape as csr.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    csr : np.ndarray</span>
+<span class="sd">        REST2 clearsky irradiance without bad or missing data.</span>
+<span class="sd">        This is a 2D array with (time, sites).</span>
+<span class="sd">    cloud_type : np.ndarray</span>
+<span class="sd">        Array of numerical cloud types.</span>
+<span class="sd">    var_frac : float</span>
+<span class="sd">        Maximum variability fraction (0.05 is 5% variability).</span>
+<span class="sd">    option : str</span>
+<span class="sd">        Variability function option (&#39;tri&#39; or &#39;linear&#39;).</span>
+<span class="sd">    tri_center : float</span>
+<span class="sd">        Value of the clearsky ratio at which there is maximum variability</span>
+<span class="sd">        (only used for the triangular distribution).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variability_scalar : np.ndarray</span>
+<span class="sd">        Array with shape matching csr with uniform random numbers centered at</span>
+<span class="sd">        1 with range (1 - var_frac) to (1 + var_frac). This array can be</span>
+<span class="sd">        multiplied by an irradiance array with the same shape as csr</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;linear&#39;</span><span class="p">:</span>
+        <span class="n">var_frac_arr</span> <span class="o">=</span> <span class="n">linear_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;tri&#39;</span><span class="p">:</span>
+        <span class="n">var_frac_arr</span> <span class="o">=</span> <span class="n">tri_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">,</span> <span class="n">tri_center</span><span class="o">=</span><span class="n">tri_center</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Did not recognize variability option: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">option</span><span class="p">))</span>
+
+    <span class="c1"># get a uniform random scalar array 0 to 1 with data shape</span>
+    <span class="n">rand_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">csr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Center the random array at 1 +/- var_frac_arr (with csr scaling)</span>
+    <span class="n">variability_scalar</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">var_frac_arr</span> <span class="o">*</span> <span class="p">(</span><span class="n">rand_arr</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># only apply rand to the applicable cloudy timesteps</span>
+    <span class="n">variability_scalar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">cloud_type</span><span class="p">,</span> <span class="n">CLOUD_TYPES</span><span class="p">),</span>
+                                  <span class="n">variability_scalar</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">variability_scalar</span></div>
+
+
+<div class="viewcode-block" id="normal_variability"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.normal_variability">[docs]</a><span class="k">def</span> <span class="nf">normal_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">cloud_type</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;tri&#39;</span><span class="p">,</span>
+                       <span class="n">tri_center</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get an array with a normal distribution of variability scalars centered</span>
+<span class="sd">    at 1 that can be multiplied by a irradiance array with the same shape as</span>
+<span class="sd">    csr.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    csr : np.ndarray</span>
+<span class="sd">        REST2 clearsky irradiance without bad or missing data.</span>
+<span class="sd">        This is a 2D array with (time, sites).</span>
+<span class="sd">    cloud_type : np.ndarray</span>
+<span class="sd">        Array of numerical cloud types.</span>
+<span class="sd">    var_frac : float</span>
+<span class="sd">        One relative standard deviation variability (0.05 is a relative</span>
+<span class="sd">        standard deviation of 5% variability).</span>
+<span class="sd">    option : str</span>
+<span class="sd">        Variability function option (&#39;tri&#39; or &#39;linear&#39;).</span>
+<span class="sd">    tri_center : float</span>
+<span class="sd">        Value of the clearsky ratio at which there is maximum variability</span>
+<span class="sd">        (only used for the triangular distribution).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variability_scalar : np.ndarray</span>
+<span class="sd">        Array with shape matching csr with normally distributed random numbers</span>
+<span class="sd">        centered at 1 with range (1 - var_frac) to (1 + var_frac). This array</span>
+<span class="sd">        can be multiplied by an irradiance array with the same shape as csr</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;linear&#39;</span><span class="p">:</span>
+        <span class="n">var_frac_arr</span> <span class="o">=</span> <span class="n">linear_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;tri&#39;</span><span class="p">:</span>
+        <span class="n">var_frac_arr</span> <span class="o">=</span> <span class="n">tri_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">,</span> <span class="n">tri_center</span><span class="o">=</span><span class="n">tri_center</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Did not recognize variability option: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">option</span><span class="p">))</span>
+
+    <span class="c1"># get a normal distribution of data centered at 0 with stdev 1</span>
+    <span class="n">rand_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">csr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># Center the random array at 1 +/- var_frac_arr (with csr scaling)</span>
+    <span class="n">variability_scalar</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">var_frac_arr</span> <span class="o">*</span> <span class="n">rand_arr</span>
+
+    <span class="c1"># only apply rand to the applicable cloudy timesteps</span>
+    <span class="n">variability_scalar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">cloud_type</span><span class="p">,</span> <span class="n">CLOUD_TYPES</span><span class="p">),</span>
+                                  <span class="n">variability_scalar</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">variability_scalar</span></div>
+
+
+<div class="viewcode-block" id="linear_variability"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.linear_variability">[docs]</a><span class="k">def</span> <span class="nf">linear_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return an array with a linear relation between clearsky ratio and</span>
+<span class="sd">    maximum variability fraction. Each value in the array is the maximum</span>
+<span class="sd">    variability fraction for the corresponding clearsky ratio.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    csr : np.ndarray</span>
+<span class="sd">        REST2 clearsky irradiance without bad or missing data.</span>
+<span class="sd">        This is a 2D array with (time, sites).</span>
+<span class="sd">    var_frac : float</span>
+<span class="sd">        Maximum variability fraction (0.05 is 5% variability).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : np.ndarray</span>
+<span class="sd">        Array with shape matching csr with maximum variability (var_frac)</span>
+<span class="sd">        when the csr = 1 (clear or thin clouds). Each value in the array is</span>
+<span class="sd">        the maximum variability fraction for the corresponding clearsky ratio.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">var_frac</span> <span class="o">*</span> <span class="n">csr</span></div>
+
+
+<div class="viewcode-block" id="tri_variability"><a class="viewcode-back" href="../../farms/farms.utilities.html#farms.utilities.tri_variability">[docs]</a><span class="k">def</span> <span class="nf">tri_variability</span><span class="p">(</span><span class="n">csr</span><span class="p">,</span> <span class="n">var_frac</span><span class="p">,</span> <span class="n">tri_center</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return an array with a triangular distribution between clearsky ratio</span>
+<span class="sd">    and maximum variability fraction. Each value in the array is</span>
+<span class="sd">    the maximum variability fraction for the corresponding clearsky ratio.</span>
+
+
+<span class="sd">    The max variability occurs when csr==tri_center, and zero variability when</span>
+<span class="sd">    csr==0 or csr==1</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    csr : np.ndarray</span>
+<span class="sd">        REST2 clearsky irradiance without bad or missing data.</span>
+<span class="sd">        This is a 2D array with (time, sites).</span>
+<span class="sd">    var_frac : float</span>
+<span class="sd">        Maximum variability fraction (0.05 is 5% variability).</span>
+<span class="sd">    tri_center : float</span>
+<span class="sd">        Value of the clearsky ratio at which there is maximum variability.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tri : np.ndarray</span>
+<span class="sd">        Array with shape matching csr with maximum variability (var_frac)</span>
+<span class="sd">        when the csr==tri_center. Each value in the array is the maximum</span>
+<span class="sd">        variability fraction for the corresponding clearsky ratio.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tri_left</span> <span class="o">=</span> <span class="n">var_frac</span> <span class="o">*</span> <span class="n">csr</span> <span class="o">*</span> <span class="mf">1.11111</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tri_center</span><span class="p">)</span>
+    <span class="n">yint</span> <span class="o">=</span> <span class="n">tri_center</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">tri_right</span> <span class="o">=</span> <span class="n">var_frac</span> <span class="o">*</span> <span class="p">(</span><span class="n">slope</span> <span class="o">*</span> <span class="n">csr</span> <span class="o">+</span> <span class="n">yint</span><span class="p">)</span>
+    <span class="n">tri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">csr</span> <span class="o">&lt;</span> <span class="n">tri_center</span><span class="p">,</span> <span class="n">tri_left</span><span class="p">,</span> <span class="n">tri_right</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tri</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Alliance for Sustainable Energy, LLC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

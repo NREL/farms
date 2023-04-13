@@ -1,0 +1,6 @@
+farms.utilities.dark\_night
+===========================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: dark_night

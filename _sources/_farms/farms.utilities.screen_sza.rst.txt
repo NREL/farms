@@ -1,0 +1,6 @@
+farms.utilities.screen\_sza
+===========================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: screen_sza

@@ -1,0 +1,6 @@
+farms.utilities.uniform\_variability
+====================================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: uniform_variability

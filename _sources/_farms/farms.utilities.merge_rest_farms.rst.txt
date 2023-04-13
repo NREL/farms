@@ -1,0 +1,6 @@
+farms.utilities.merge\_rest\_farms
+==================================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: merge_rest_farms

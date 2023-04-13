@@ -1,0 +1,6 @@
+farms.farms.farms
+=================
+
+.. currentmodule:: farms.farms
+
+.. autofunction:: farms

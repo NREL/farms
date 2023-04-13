@@ -1,0 +1,6 @@
+farms.utilities.tri\_variability
+================================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: tri_variability

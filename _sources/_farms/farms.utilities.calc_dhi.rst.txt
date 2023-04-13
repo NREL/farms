@@ -1,0 +1,6 @@
+farms.utilities.calc\_dhi
+=========================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: calc_dhi

@@ -1,0 +1,6 @@
+farms.utilities.linear\_variability
+===================================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: linear_variability

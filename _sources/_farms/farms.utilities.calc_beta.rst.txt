@@ -1,0 +1,6 @@
+farms.utilities.calc\_beta
+==========================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: calc_beta

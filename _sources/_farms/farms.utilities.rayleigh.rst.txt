@@ -1,0 +1,6 @@
+farms.utilities.rayleigh
+========================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: rayleigh

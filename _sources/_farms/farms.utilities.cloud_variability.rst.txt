@@ -1,0 +1,6 @@
+farms.utilities.cloud\_variability
+==================================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: cloud_variability

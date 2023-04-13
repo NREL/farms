@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>farms.utilities module &mdash; farms 1.0.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            farms
+          </a>
+              <div class="version">
+                1.0.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_farms/farms.html">farms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_farms/farms.disc.html">farms.disc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.disc.disc.html">farms.disc.disc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.disc.disc.html#farms.disc.disc"><code class="docutils literal notranslate"><span class="pre">disc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../_farms/farms.farms.farms.html">farms.farms.farms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.farms.farms.html#farms.farms.farms"><code class="docutils literal notranslate"><span class="pre">farms()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../_farms/farms.utilities.html">farms.utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.calc_beta.html">farms.utilities.calc_beta</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.calc_beta.html#farms.utilities.calc_beta"><code class="docutils literal notranslate"><span class="pre">calc_beta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.calc_dhi.html">farms.utilities.calc_dhi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.calc_dhi.html#farms.utilities.calc_dhi"><code class="docutils literal notranslate"><span class="pre">calc_dhi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.check_range.html">farms.utilities.check_range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.check_range.html#farms.utilities.check_range"><code class="docutils literal notranslate"><span class="pre">check_range()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.cloud_variability.html">farms.utilities.cloud_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.cloud_variability.html#farms.utilities.cloud_variability"><code class="docutils literal notranslate"><span class="pre">cloud_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.dark_night.html">farms.utilities.dark_night</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.dark_night.html#farms.utilities.dark_night"><code class="docutils literal notranslate"><span class="pre">dark_night()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.linear_variability.html">farms.utilities.linear_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.linear_variability.html#farms.utilities.linear_variability"><code class="docutils literal notranslate"><span class="pre">linear_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.merge_rest_farms.html">farms.utilities.merge_rest_farms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.merge_rest_farms.html#farms.utilities.merge_rest_farms"><code class="docutils literal notranslate"><span class="pre">merge_rest_farms()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.normal_variability.html">farms.utilities.normal_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.normal_variability.html#farms.utilities.normal_variability"><code class="docutils literal notranslate"><span class="pre">normal_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.rayleigh.html">farms.utilities.rayleigh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.rayleigh.html#farms.utilities.rayleigh"><code class="docutils literal notranslate"><span class="pre">rayleigh()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.screen_cld.html">farms.utilities.screen_cld</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.screen_cld.html#farms.utilities.screen_cld"><code class="docutils literal notranslate"><span class="pre">screen_cld()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.screen_sza.html">farms.utilities.screen_sza</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.screen_sza.html#farms.utilities.screen_sza"><code class="docutils literal notranslate"><span class="pre">screen_sza()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.ti_to_radius.html">farms.utilities.ti_to_radius</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.ti_to_radius.html#farms.utilities.ti_to_radius"><code class="docutils literal notranslate"><span class="pre">ti_to_radius()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.ti_to_radius_csv.html">farms.utilities.ti_to_radius_csv</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.ti_to_radius_csv.html#farms.utilities.ti_to_radius_csv"><code class="docutils literal notranslate"><span class="pre">ti_to_radius_csv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.tri_variability.html">farms.utilities.tri_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.tri_variability.html#farms.utilities.tri_variability"><code class="docutils literal notranslate"><span class="pre">tri_variability()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../_farms/farms.utilities.uniform_variability.html">farms.utilities.uniform_variability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_farms/farms.utilities.uniform_variability.html#farms.utilities.uniform_variability"><code class="docutils literal notranslate"><span class="pre">uniform_variability()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../_farms/farms.version.html">farms.version</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">farms</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">farms.utilities module</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/nrel/farms/blob/main/docs/source/farms/farms.utilities.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-farms.utilities">
+<span id="farms-utilities-module"></span><h1>farms.utilities module<a class="headerlink" href="#module-farms.utilities" title="Permalink to this heading"></a></h1>
+<p>Common utilities FARMS module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.check_range">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">check_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#check_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.check_range" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure that data values are in correct range.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.ti_to_radius_csv">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">ti_to_radius_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#ti_to_radius_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.ti_to_radius_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a time index to radius.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_index</strong> (<em>pandas.core.indexes.datetimes.DatetimeIndex</em>) – NSRDB time series. Can extract from h5 as follows:
+time_index = pd.to_datetime(h5[‘time_index’][…].astype(str))</p></li>
+<li><p><strong>n_cols</strong> (<em>int</em>) – Number of columns to output. The radius vertical 1D array will be
+copied this number of times horizontally (np.tile).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>radius</strong> (<em>np.array</em>) – Array of radius values matching the time index.
+Shape is (len(time_index), n_cols).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.ti_to_radius">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">ti_to_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#ti_to_radius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.ti_to_radius" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates Earth-Sun Radius Vector.</p>
+<p>Reference:
+<a class="reference external" href="http://www.nrel.gov/docs/fy08osti/34302.pdf">http://www.nrel.gov/docs/fy08osti/34302.pdf</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_index</strong> (<em>pandas.core.indexes.datetimes.DatetimeIndex</em>) – NSRDB time series. Can extract from h5 as follows:
+time_index = pd.to_datetime(h5[‘time_index’][…].astype(str))</p></li>
+<li><p><strong>n_cols</strong> (<em>int</em>) – Number of columns to output. The radius vertical 1D array will be
+copied this number of times horizontally (np.tile).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>radius</strong> (<em>np.array</em>) – Array of radius values matching the time index.
+Shape is (len(time_index), n_cols).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.calc_beta">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">calc_beta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aod</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#calc_beta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.calc_beta" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the Angstrom turbidity coeff. (beta).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aod</strong> (<em>np.ndarray</em>) – Array of aerosol optical depth (AOD) values. Shape must match alpha.</p></li>
+<li><p><strong>alpha</strong> (<em>np.ndarray</em>) – Array of angstrom wavelength exponent values. Shape must match aod.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>beta</strong> (<em>np.ndarray</em>) – Array of Angstrom turbidity coeff., i.e. AOD at 1000 nm.
+Shape will be same as aod and alpha. Will be tested for compliance
+with the mandatory interval [0, 2.2].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.calc_dhi">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">calc_dhi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dni</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ghi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sza</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#calc_dhi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.calc_dhi" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the diffuse horizontal irradiance and correct the direct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dni</strong> (<em>np.ndarray</em>) – Direct normal irradiance.</p></li>
+<li><p><strong>ghi</strong> (<em>np.ndarray</em>) – Global horizontal irradiance.</p></li>
+<li><p><strong>sza</strong> (<em>np.ndarray</em>) – Solar zenith angle (degrees).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dhi</strong> (<em>np.ndarray</em>) – Diffuse horizontal irradiance. This is ensured to be non-negative.</p></li>
+<li><p><strong>dni</strong> (<em>np.ndarray</em>) – Direct normal irradiance. This is set to zero where dhi &lt; 0</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.rayleigh">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">rayleigh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dhi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs_dhi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_flag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rayleigh_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#rayleigh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.rayleigh" title="Permalink to this definition"></a></dt>
+<dd><p>Perform Rayleigh violation check (all-sky diffuse &gt;= clearsky diffuse).</p>
+<p>Decided not to use this in all-sky on 7/3/2019</p>
+<p>Failed data gets filled with farms data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dhi</strong> (<em>np.ndarray</em>) – All-sky diffuse irradiance.</p></li>
+<li><p><strong>cs_dhi</strong> (<em>np.ndarray</em>) – Clearsky (rest) diffuse irradiance.</p></li>
+<li><p><strong>fill_flag</strong> (<em>np.ndarray</em>) – Array of integers signifying whether irradiance has been filled.</p></li>
+<li><p><strong>rayleigh_flag</strong> (<em>int</em>) – Fill flag for rayleigh violation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>fill_flag</strong> (<em>np.ndarray</em>) – Array of integers signifying whether irradiance has been filled, with
+rayleigh violations marked with the rayleigh flag.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.merge_rest_farms">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">merge_rest_farms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clearsky_irrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloudy_irrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloud_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#merge_rest_farms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.merge_rest_farms" title="Permalink to this definition"></a></dt>
+<dd><p>Combine clearsky and rest data into all-sky irradiance array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clearsky_irrad</strong> (<em>np.ndarray</em>) – Clearsky irradiance data from REST.</p></li>
+<li><p><strong>cloudy_irrad</strong> (<em>np.ndarray</em>) – Cloudy irradiance data from FARMS.</p></li>
+<li><p><strong>cloud_type</strong> (<em>np.ndarray</em>) – Cloud type array which acts as a mask specifying where to take
+cloud/clear data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>all_sky_irrad</strong> (<em>np.ndarray</em>) – All-sky (cloudy + clear) irradiance data, merged dataset from
+FARMS and REST.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.screen_cld">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">screen_cld</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cld_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">160)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#screen_cld"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.screen_cld" title="Permalink to this definition"></a></dt>
+<dd><p>Enforce a numeric range on cloud property data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cld_data</strong> (<em>np.ndarray</em>) – Cloud property data (cld_opd_dcomp, cld_reff_dcomp).</p></li>
+<li><p><strong>rng</strong> (<em>list | tuple</em>) – Inclusive intended range of the cloud data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>cld_data</strong> (<em>np.ndarray</em>) – Cloud property data (cld_opd_dcomp, cld_reff_dcomp)
+with min/max values equal to rng.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.screen_sza">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">screen_sza</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sza</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">89.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#screen_sza"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.screen_sza" title="Permalink to this definition"></a></dt>
+<dd><p>Enforce an upper limit on the solar zenith angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sza</strong> (<em>np.ndarray</em>) – Solar zenith angle in degrees.</p></li>
+<li><p><strong>lim</strong> (<em>int | float</em>) – Upper limit of SZA in degrees.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>sza</strong> (<em>np.ndarray</em>) – Solar zenith angle in degrees with max value = lim.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.dark_night">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">dark_night</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">irrad_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sza</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">89.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#dark_night"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.dark_night" title="Permalink to this definition"></a></dt>
+<dd><p>Enforce zero irradiance when solar angle &gt;= threshold.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>irrad_data</strong> (<em>np.ndarray</em>) – DHI, DNI, or GHI.</p></li>
+<li><p><strong>sza</strong> (<em>np.ndarray</em>) – Solar zenith angle in degrees.</p></li>
+<li><p><strong>lim</strong> (<em>int | float</em>) – Upper limit of SZA in degrees.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>irrad_data</strong> (<em>np.ndarray</em>) – DHI, DNI, or GHI with zero values when sza &gt;= lim.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.cloud_variability">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">cloud_variability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">irrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs_irrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloud_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_frac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tri'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">123</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#cloud_variability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.cloud_variability" title="Permalink to this definition"></a></dt>
+<dd><p>Add syntehtic variability to irradiance when it’s cloudy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>irrad</strong> (<em>np.ndarray</em>) – Full FARMS + REST2 merged irradiance 2D array.</p></li>
+<li><p><strong>cs_irrad</strong> (<em>np.ndarray</em>) – REST2 clearsky irradiance without bad or missing data.</p></li>
+<li><p><strong>cloud_type</strong> (<em>np.ndarray</em>) – Array of numerical cloud types.</p></li>
+<li><p><strong>var_frac</strong> (<em>float</em>) – Maximum variability fraction (0.05 is 5% variability) or if
+distribution is “normal” this is the maximum relative standard
+deviation of the Variability.</p></li>
+<li><p><strong>distribution</strong> (<em>str</em>) – Distribution shape of the Variability. Can be uniform or normal.</p></li>
+<li><p><strong>option</strong> (<em>str</em>) – Variability function option (‘tri’ or ‘linear’).</p></li>
+<li><p><strong>random_seed</strong> (<em>int | NoneType</em>) – Number to seed the numpy random number generator. Used to generate
+reproducable psuedo-random cloud variability. Numpy random will be
+seeded with the system time if this is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>irrad</strong> (<em>np.ndarray</em>) – Full FARMS + REST2 merged irradiance 2D array with variability added
+to cloudy timesteps.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.uniform_variability">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">uniform_variability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloud_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_frac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tri'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#uniform_variability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.uniform_variability" title="Permalink to this definition"></a></dt>
+<dd><p>Get an array with uniform variability scalars centered at 1 that can be
+multiplied by a irradiance array with the same shape as csr.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csr</strong> (<em>np.ndarray</em>) – REST2 clearsky irradiance without bad or missing data.
+This is a 2D array with (time, sites).</p></li>
+<li><p><strong>cloud_type</strong> (<em>np.ndarray</em>) – Array of numerical cloud types.</p></li>
+<li><p><strong>var_frac</strong> (<em>float</em>) – Maximum variability fraction (0.05 is 5% variability).</p></li>
+<li><p><strong>option</strong> (<em>str</em>) – Variability function option (‘tri’ or ‘linear’).</p></li>
+<li><p><strong>tri_center</strong> (<em>float</em>) – Value of the clearsky ratio at which there is maximum variability
+(only used for the triangular distribution).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>variability_scalar</strong> (<em>np.ndarray</em>) – Array with shape matching csr with uniform random numbers centered at
+1 with range (1 - var_frac) to (1 + var_frac). This array can be
+multiplied by an irradiance array with the same shape as csr</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.normal_variability">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">normal_variability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloud_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_frac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tri'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#normal_variability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.normal_variability" title="Permalink to this definition"></a></dt>
+<dd><p>Get an array with a normal distribution of variability scalars centered
+at 1 that can be multiplied by a irradiance array with the same shape as
+csr.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csr</strong> (<em>np.ndarray</em>) – REST2 clearsky irradiance without bad or missing data.
+This is a 2D array with (time, sites).</p></li>
+<li><p><strong>cloud_type</strong> (<em>np.ndarray</em>) – Array of numerical cloud types.</p></li>
+<li><p><strong>var_frac</strong> (<em>float</em>) – One relative standard deviation variability (0.05 is a relative
+standard deviation of 5% variability).</p></li>
+<li><p><strong>option</strong> (<em>str</em>) – Variability function option (‘tri’ or ‘linear’).</p></li>
+<li><p><strong>tri_center</strong> (<em>float</em>) – Value of the clearsky ratio at which there is maximum variability
+(only used for the triangular distribution).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>variability_scalar</strong> (<em>np.ndarray</em>) – Array with shape matching csr with normally distributed random numbers
+centered at 1 with range (1 - var_frac) to (1 + var_frac). This array
+can be multiplied by an irradiance array with the same shape as csr</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.linear_variability">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">linear_variability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_frac</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#linear_variability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.linear_variability" title="Permalink to this definition"></a></dt>
+<dd><p>Return an array with a linear relation between clearsky ratio and
+maximum variability fraction. Each value in the array is the maximum
+variability fraction for the corresponding clearsky ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csr</strong> (<em>np.ndarray</em>) – REST2 clearsky irradiance without bad or missing data.
+This is a 2D array with (time, sites).</p></li>
+<li><p><strong>var_frac</strong> (<em>float</em>) – Maximum variability fraction (0.05 is 5% variability).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> (<em>np.ndarray</em>) – Array with shape matching csr with maximum variability (var_frac)
+when the csr = 1 (clear or thin clouds). Each value in the array is
+the maximum variability fraction for the corresponding clearsky ratio.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="farms.utilities.tri_variability">
+<span class="sig-prename descclassname"><span class="pre">farms.utilities.</span></span><span class="sig-name descname"><span class="pre">tri_variability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_frac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/farms/utilities.html#tri_variability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#farms.utilities.tri_variability" title="Permalink to this definition"></a></dt>
+<dd><p>Return an array with a triangular distribution between clearsky ratio
+and maximum variability fraction. Each value in the array is
+the maximum variability fraction for the corresponding clearsky ratio.</p>
+<p>The max variability occurs when csr==tri_center, and zero variability when
+csr==0 or csr==1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csr</strong> (<em>np.ndarray</em>) – REST2 clearsky irradiance without bad or missing data.
+This is a 2D array with (time, sites).</p></li>
+<li><p><strong>var_frac</strong> (<em>float</em>) – Maximum variability fraction (0.05 is 5% variability).</p></li>
+<li><p><strong>tri_center</strong> (<em>float</em>) – Value of the clearsky ratio at which there is maximum variability.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>tri</strong> (<em>np.ndarray</em>) – Array with shape matching csr with maximum variability (var_frac)
+when the csr==tri_center. Each value in the array is the maximum
+variability fraction for the corresponding clearsky ratio.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Alliance for Sustainable Energy, LLC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+farms.utilities.normal\_variability
+===================================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: normal_variability

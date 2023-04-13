@@ -1,0 +1,6 @@
+farms.utilities.check\_range
+============================
+
+.. currentmodule:: farms.utilities
+
+.. autofunction:: check_range
