@@ -158,14 +158,32 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
 
     Returns
     -------
-    ghi : np.ndarray
-        FARMS GHI values (this is the only output if debug is False).
-    fast_data : collections.namedtuple
-        Additional debugging variables if debug is True.
-        Named tuple with irradiance data. Attributes:
-            ghi : global horizontal irradiance (w/m2)
-            dni : direct normal irradiance (w/m2)
-            dhi : diffuse horizontal irradiance (w/m2)
+    If debug == True:
+        fast_data : collections.namedtuple
+            Named tuple with irradiance data with the following attributes:
+                ghi : np.ndarray
+                    global horizontal irradiance (W/m2)
+                dni : np.ndarray
+                    direct normal irradiance (W/m2)
+                dhi : np.ndarray
+                    diffuse horizontal irradiance (W/m2)
+                Ruucld : np.ndarray
+                    Aerosol reflectance for diffuse fluxes for cloudy
+                    atmosphere.
+                Tddcld : np.ndarray
+                    Transmittance of the cloudy atmosphere for direct incident
+                    and direct outgoing fluxes (dd).
+                Tducld : np.ndarray
+                    Transmittance of the cloudy atmosphere for direct incident
+                    and diffuse outgoing fluxes (du).
+    else:
+        ghi: np.ndarray
+            Global horizontal irradiance (W/m2)
+        dni_farmsdni: np.ndarray
+            DNI computed by FARMS-DNI (W/m2).
+        dni0: np.ndarray
+            DNI computed by the Lambert law (W/m2). It only includes the narrow
+            beam in the circumsolar region.
     """
     # disable divide by zero warnings
     np.seterr(divide='ignore')
@@ -209,9 +227,9 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
     dni = Fd / solar_zenith_angle  # eq 2b from [1]
     dhi = ghi - Fd  # eq 7 from [1]
 
-    Fd, dni_farmsdni, dni0 = \
-        farms_dni.farms_dni(F0, tau, solar_zenith_angle, De, phase,
-                            phase1, phase2, Tddclr, ghi, F1)
+    Fd, dni_farmsdni, dni0 = farms_dni.farms_dni(F0, tau, solar_zenith_angle,
+                                                 De, phase, phase1, phase2,
+                                                 Tddclr, ghi, F1)
 
     clear_mask = np.in1d(cloud_type, CLEAR_TYPES).reshape(cloud_type.shape)
     if debug:
@@ -228,8 +246,7 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
 
         return fast_data
     else:
-        # return only GHI
-        return np.where(clear_mask, np.nan, ghi),\
-            np.where(clear_mask, np.nan, dni_farmsdni),\
-            np.where(clear_mask, np.nan, dni0)
-        # print( theta00, idx, muomega )
+        out = (np.where(clear_mask, np.nan, ghi),
+               np.where(clear_mask, np.nan, dni_farmsdni),
+               np.where(clear_mask, np.nan, dni0))
+        return out
