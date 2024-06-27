@@ -132,6 +132,12 @@ def calc_beta(aod, alpha):
 def calc_dhi(dni, ghi, sza):
     """Calculate the diffuse horizontal irradiance and correct the direct.
 
+    Note that in PSM 3.1.0 through 4.0.0 we would set DNI to zero where dhi < 0
+    in case DISC produced large DNI when GHI was small under cloudy noontime
+    conditions. However, DISC doesn't really do this so it's safer to not
+    zero-out DNI because the only time dhi < 0 is when DNI is large in clearsky
+    conditions
+
     Parameters
     ----------
     dni : np.ndarray
@@ -146,14 +152,11 @@ def calc_dhi(dni, ghi, sza):
     dhi : np.ndarray
         Diffuse horizontal irradiance. This is ensured to be non-negative.
     dni : np.ndarray
-        Direct normal irradiance. This is set to zero where dhi < 0
+        Direct normal irradiance (unmanipulated. output arg preserved for
+        legacy interface).
     """
     dhi = ghi - dni * np.cos(np.radians(sza))
-    if np.min(dhi) < 0:
-        # patch for negative DHI values. Set DNI to zero, set DHI to GHI
-        pos = np.where(dhi < 0)
-        dni[pos] = 0
-        dhi[pos] = ghi[pos]
+    dhi = np.maximum(dhi, 0)
 
     return dhi, dni
 
