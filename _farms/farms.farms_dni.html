@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>farms.farms_dni &mdash; farms 1.0.6 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e2a723ec"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="farms.farms_dni.Pice" href="farms.farms_dni.Pice.html" />
+    <link rel="prev" title="farms.disc.disc" href="farms.disc.disc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            farms
+          </a>
+              <div class="version">
+                1.0.6
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="farms.html">farms</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="farms.disc.html">farms.disc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="farms.disc.disc.html">farms.disc.disc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="farms.disc.disc.html#farms.disc.disc"><code class="docutils literal notranslate"><span class="pre">disc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">farms.farms_dni</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="farms.farms_dni.Pice.html">farms.farms_dni.Pice</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="farms.farms_dni.Pice.html#farms.farms_dni.Pice"><code class="docutils literal notranslate"><span class="pre">Pice()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="farms.farms_dni.Pwater.html">farms.farms_dni.Pwater</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="farms.farms_dni.Pwater.html#farms.farms_dni.Pwater"><code class="docutils literal notranslate"><span class="pre">Pwater()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="farms.farms_dni.TDD2.html">farms.farms_dni.TDD2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="farms.farms_dni.TDD2.html#farms.farms_dni.TDD2"><code class="docutils literal notranslate"><span class="pre">TDD2()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="farms.farms_dni.TDDP.html">farms.farms_dni.TDDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="farms.farms_dni.TDDP.html#farms.farms_dni.TDDP"><code class="docutils literal notranslate"><span class="pre">TDDP()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="farms.farms_dni.farms_dni.html">farms.farms_dni.farms_dni</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="farms.farms_dni.farms_dni.html#farms.farms_dni.farms_dni"><code class="docutils literal notranslate"><span class="pre">farms_dni()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="farms.version.html">farms.version</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">farms</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="farms.html">farms</a></li>
+      <li class="breadcrumb-item active">farms.farms_dni</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/nrel/farms/blob/main/docs/source/_farms/farms.farms_dni.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-farms.farms_dni">
+<span id="farms-farms-dni"></span><h1>farms.farms_dni<a class="headerlink" href="#module-farms.farms_dni" title="Link to this heading"></a></h1>
+<p>This model updates the computation of DNI used for FARMS.
+The orignal FARMS use DISC model to compute cloudy-sky DNI.
+This new model uses a physics-based algorithm to solve the direct
+and scattered beam in the circumsolar region.</p>
+<p>Created on March 1, 2022
+Upgraded on March 21, 2023
+FARMS-DNI model developed by Yu Xie (<a class="reference external" href="mailto:yu&#46;xie&#37;&#52;&#48;nrel&#46;gov">yu<span>&#46;</span>xie<span>&#64;</span>nrel<span>&#46;</span>gov</a>)</p>
+<p class="rubric">References</p>
+<p>Xie, Y., Sengupta, M., Dudhia, J., 2016. A Fast All-sky Radiation Model for
+Solar applications (FARMS): Algorithm and performance evaluation. Sol. Energy</p>
+<blockquote>
+<div><p>135, 435-445.</p>
+</div></blockquote>
+<p>Xie, Y., Sengupta, M., Liu, Y., Long, H., Min, Q., Liu, W., Habte, A., 2020.
+A physics-based DNI model assessing all-sky circumsolar radiation. iScience 22,</p>
+<blockquote>
+<div><p>doi.org/10.1016/j.isci.2020.100893.</p>
+</div></blockquote>
+<p>Yang, J., Xie, Y., Sengupta, M., Liu, Y., Long, H., 2022. Parameterization of
+cloud transmittance for expeditious assessment and forecasting of all-sky DNI.
+J. Renewable Sustainable Energy 14, 063703.</p>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="farms.farms_dni.Pice.html#farms.farms_dni.Pice" title="farms.farms_dni.Pice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pice</span></code></a>(Z, tau, De)</p></td>
+<td><p>Compute cloud transmittance for ice clouds The defination and use of the transmittance can be found in  Xie et al. (2020) The cloud transmittance is parameterized by Yang et al. (2022).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="farms.farms_dni.Pwater.html#farms.farms_dni.Pwater" title="farms.farms_dni.Pwater"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pwater</span></code></a>(Z, tau, De)</p></td>
+<td><p>Compute cloud transmittance for water clouds The defination and use of the transmittance can be found in  Xie et al. (2020) The cloud transmittance is parameterized by Yang et al. (2022).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="farms.farms_dni.TDD2.html#farms.farms_dni.TDD2" title="farms.farms_dni.TDD2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TDD2</span></code></a>(Z, Ftotal, F1)</p></td>
+<td><p>Compute surface reflection that falls in the circumsolar region.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="farms.farms_dni.TDDP.html#farms.farms_dni.TDDP" title="farms.farms_dni.TDDP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TDDP</span></code></a>(Z, tau, De, phase1, phase2)</p></td>
+<td><p>Compute cloud transmittance of DNI for water and ice clouds More details can be found in Xie et al. (2020).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="farms.farms_dni.farms_dni.html#farms.farms_dni.farms_dni" title="farms.farms_dni.farms_dni"><code class="xref py py-obj docutils literal notranslate"><span class="pre">farms_dni</span></code></a>(F0, tau, solar_zenith_angle, De, ...)</p></td>
+<td><p>Fast All-sky Radiation Model for solar applications with direct normal irradiance (FARMS-DNI)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="farms.disc.disc.html" class="btn btn-neutral float-left" title="farms.disc.disc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="farms.farms_dni.Pice.html" class="btn btn-neutral float-right" title="farms.farms_dni.Pice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Alliance for Sustainable Energy, LLC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
