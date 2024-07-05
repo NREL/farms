@@ -1,25 +1,46 @@
-"""Common utilities FARMS module.
-"""
+"""Common utilities FARMS module."""
 
-from copy import deepcopy
-import pandas as pd
-import numpy as np
 import os
+from copy import deepcopy
 from warnings import warn
-from farms import RADIUS, CLEAR_TYPES, CLOUD_TYPES, SZA_LIM
+
+import numpy as np
+import pandas as pd
+import pytest
+
+from farms import CLEAR_TYPES, CLOUD_TYPES, RADIUS, SZA_LIM
+
+
+def execute_pytest(file, capture="all", flags="-rapP"):
+    """Execute module as pytest with detailed summary report.
+
+    Parameters
+    ----------
+    file : str
+        Pytest file to execute
+    capture : str
+        Log or stdout/stderr capture option. ex: log (only logger),
+        all (includes stdout/stderr)
+    flags : str
+        Which tests to show logs and results for.
+    """
+
+    fname = os.path.basename(file)
+    pytest.main(["-q", "--show-capture={}".format(capture), fname, flags])
 
 
 def check_range(data, name, rang=(0, 1)):
     """Ensure that data values are in correct range."""
     if np.nanmin(data) < rang[0] or np.nanmax(data) > rang[1]:
-        raise ValueError('Variable "{n}" is out of expected '
-                         'transmittance/reflectance range. Recommend checking '
-                         'solar zenith angle to ensure cos(sza) is '
-                         'non-negative and non-zero. '
-                         'Max/min of {n} = {mx}/{mn}'
-                         .format(n=name,
-                                 mx=np.nanmax(data),
-                                 mn=np.nanmin(data)))
+        raise ValueError(
+            'Variable "{n}" is out of expected '
+            "transmittance/reflectance range. Recommend checking "
+            "solar zenith angle to ensure cos(sza) is "
+            "non-negative and non-zero. "
+            "Max/min of {n} = {mx}/{mn}".format(
+                n=name, mx=np.nanmax(data), mn=np.nanmin(data)
+            )
+        )
 
 
 def ti_to_radius_csv(time_index, n_cols=1):
@@ -70,8 +91,8 @@ def ti_to_radius(time_index, n_cols=1):
     """
     # load earth periodic table
     path = os.path.dirname(os.path.realpath(__file__))
-    df = pd.read_csv(os.path.join(path, 'earth_periodic_terms.csv'))
-    df['key'] = 1
+    df = pd.read_csv(os.path.join(path, "earth_periodic_terms.csv"))
+    df["key"] = 1
     # 3.1.1 (4). Julian Date.
     j = time_index.to_julian_date().values
     # 3.1.2 (5). Julian Ephermeris Date
@@ -80,18 +101,27 @@ def ti_to_radius(time_index, n_cols=1):
     j = (j - 2451545) / 36525
     # 3.1.4 (8). Julian Ephemeris Millennium
     j = j / 10
-    df_jme = pd.DataFrame({'uid': range(len(j)), 'jme': j, 'key': 1})
+    df_jme = pd.DataFrame({"uid": range(len(j)), "jme": j, "key": 1})
     # Merge JME with Periodic Table
-    df_merge = pd.merge(df_jme, df, on='key')
+    df_merge = pd.merge(df_jme, df, on="key")
     # 3.2.1 (9). Heliocentric radius vector.
-    df_merge['r'] = df_merge['a'] * np.cos(df_merge['b'] + df_merge['c']
-                                           * df_merge['jme'])
+    df_merge["r"] = df_merge["a"] * np.cos(
+        df_merge["b"] + df_merge["c"] * df_merge["jme"]
+    )
     # 3.2.2 (10).
-    dfs = df_merge.groupby(by=['uid', 'term'])['r'].sum().unstack()
+    dfs = df_merge.groupby(by=["uid", "term"])["r"].sum().unstack()
     # 3.2.4 (11). Earth Heliocentric radius vector
-    radius = ((dfs['R0'] + dfs['R1'] * j + dfs['R2'] * np.power(j, 2)
-               + dfs['R3'] * np.power(j, 3) + dfs['R4'] * np.power(j, 4)
-               + dfs['R5'] * np.power(j, 5)) / np.power(10, 8)).values
+    radius = (
+        (
+            dfs["R0"]
+            + dfs["R1"] * j
+            + dfs["R2"] * np.power(j, 2)
+            + dfs["R3"] * np.power(j, 3)
+            + dfs["R4"] * np.power(j, 4)
+            + dfs["R5"] * np.power(j, 5)
+        )
+        / np.power(10, 8)
+    ).values
     radius = radius.reshape((len(time_index), 1))
     radius = np.tile(radius, n_cols)
 
@@ -116,15 +146,21 @@ def calc_beta(aod, alpha):
         with the mandatory interval [0, 2.2].
     """
     if aod.shape != alpha.shape:
-        raise ValueError('To calculate beta, aod and alpha inputs must be of '
-                         'the same shape. Received arrays of shape {} and {}'
-                         .format(aod.shape, alpha.shape))
+        raise ValueError(
+            "To calculate beta, aod and alpha inputs must be of "
+            "the same shape. Received arrays of shape {} and {}".format(
+                aod.shape, alpha.shape
+            )
+        )
 
     beta = aod * np.power(0.55, alpha)
     if np.max(beta) > 2.2 or np.min(beta) < 0:
-        warn('Calculation of beta resulted in values outside of '
-             'expected range [0, 2.2]. Min/max of beta are: {}/{}'
-             .format(np.min(beta), np.max(beta)))
+        warn(
+            "Calculation of beta resulted in values outside of "
+            "expected range [0, 2.2]. Min/max of beta are: {}/{}".format(
+                np.min(beta), np.max(beta)
+            )
+        )
 
     return beta
 
@@ -213,11 +249,12 @@ def merge_rest_farms(clearsky_irrad, cloudy_irrad, cloud_type):
         FARMS and REST.
     """
     # disable nan warnings
-    np.seterr(divide='ignore', invalid='ignore')
+    np.seterr(divide="ignore", invalid="ignore")
 
     # combine clearsky and farms according to the cloud types.
-    all_sky_irrad = np.where(np.isin(cloud_type, CLEAR_TYPES),
-                             clearsky_irrad, cloudy_irrad)
+    all_sky_irrad = np.where(
+        np.isin(cloud_type, CLEAR_TYPES), clearsky_irrad, cloudy_irrad
+    )
 
     return all_sky_irrad
 
@@ -256,7 +293,7 @@ def screen_sza(sza, lim=SZA_LIM):
         Upper limit of SZA in degrees.
 
     Returns
-    ----------
+    -------
     sza : np.ndarray
         Solar zenith angle in degrees with max value = lim.
     """
@@ -288,9 +325,16 @@ def dark_night(irrad_data, sza, lim=SZA_LIM):
     return irrad_data
 
 
-def cloud_variability(irrad, cs_irrad, cloud_type, var_frac=0.05,
-                      distribution='uniform', option='tri', tri_center=0.9,
-                      random_seed=123):
+def cloud_variability(
+    irrad,
+    cs_irrad,
+    cloud_type,
+    var_frac=0.05,
+    distribution="uniform",
+    option="tri",
+    tri_center=0.9,
+    random_seed=123,
+):
     """Add syntehtic variability to irradiance when it's cloudy.
 
     Parameters
@@ -321,7 +365,7 @@ def cloud_variability(irrad, cs_irrad, cloud_type, var_frac=0.05,
         to cloudy timesteps.
     """
     # disable divide by zero warnings
-    np.seterr(divide='ignore', invalid='ignore')
+    np.seterr(divide="ignore", invalid="ignore")
 
     if var_frac:
         # set a seed for psuedo-random but repeatable results
@@ -332,25 +376,27 @@ def cloud_variability(irrad, cs_irrad, cloud_type, var_frac=0.05,
         # Set the cloud/clear ratio to zero when it's nighttime
         csr[(cs_irrad == 0)] = 0
 
-        if distribution == 'uniform':
-            variability_scalar = uniform_variability(csr, cloud_type, var_frac,
-                                                     option=option,
-                                                     tri_center=tri_center)
-        elif distribution == 'normal':
-            variability_scalar = normal_variability(csr, cloud_type, var_frac,
-                                                    option=option,
-                                                    tri_center=tri_center)
+        if distribution == "uniform":
+            variability_scalar = uniform_variability(
+                csr, cloud_type, var_frac, option=option, tri_center=tri_center
+            )
+        elif distribution == "normal":
+            variability_scalar = normal_variability(
+                csr, cloud_type, var_frac, option=option, tri_center=tri_center
+            )
         else:
-            raise ValueError('Did not recognize distribution: {}'
-                             .format(distribution))
+            raise ValueError(
+                "Did not recognize distribution: {}".format(distribution)
+            )
 
         irrad *= variability_scalar
 
     return irrad
 
 
-def uniform_variability(csr, cloud_type, var_frac, option='tri',
-                        tri_center=0.9):
+def uniform_variability(
+    csr, cloud_type, var_frac, option="tri", tri_center=0.9
+):
     """Get an array with uniform variability scalars centered at 1 that can be
     multiplied by a irradiance array with the same shape as csr.
 
@@ -376,13 +422,14 @@ def uniform_variability(csr, cloud_type, var_frac, option='tri',
         1 with range (1 - var_frac) to (1 + var_frac). This array can be
         multiplied by an irradiance array with the same shape as csr
     """
-    if option == 'linear':
+    if option == "linear":
         var_frac_arr = linear_variability(csr, var_frac)
-    elif option == 'tri':
+    elif option == "tri":
         var_frac_arr = tri_variability(csr, var_frac, tri_center=tri_center)
     else:
-        raise ValueError('Did not recognize variability option: {}'
-                         .format(option))
+        raise ValueError(
+            "Did not recognize variability option: {}".format(option)
+        )
 
     # get a uniform random scalar array 0 to 1 with data shape
     rand_arr = np.random.rand(csr.shape[0], csr.shape[1])
@@ -391,14 +438,16 @@ def uniform_variability(csr, cloud_type, var_frac, option='tri',
     variability_scalar = 1 + var_frac_arr * (rand_arr * 2 - 1)
 
     # only apply rand to the applicable cloudy timesteps
-    variability_scalar = np.where(np.isin(cloud_type, CLOUD_TYPES),
-                                  variability_scalar, 1)
+    variability_scalar = np.where(
+        np.isin(cloud_type, CLOUD_TYPES), variability_scalar, 1
+    )
 
     return variability_scalar
 
 
-def normal_variability(csr, cloud_type, var_frac, option='tri',
-                       tri_center=0.9):
+def normal_variability(
+    csr, cloud_type, var_frac, option="tri", tri_center=0.9
+):
     """Get an array with a normal distribution of variability scalars centered
     at 1 that can be multiplied by a irradiance array with the same shape as
     csr.
@@ -426,13 +475,14 @@ def normal_variability(csr, cloud_type, var_frac, option='tri',
         centered at 1 with range (1 - var_frac) to (1 + var_frac). This array
         can be multiplied by an irradiance array with the same shape as csr
     """
-    if option == 'linear':
+    if option == "linear":
         var_frac_arr = linear_variability(csr, var_frac)
-    elif option == 'tri':
+    elif option == "tri":
         var_frac_arr = tri_variability(csr, var_frac, tri_center=tri_center)
     else:
-        raise ValueError('Did not recognize variability option: {}'
-                         .format(option))
+        raise ValueError(
+            "Did not recognize variability option: {}".format(option)
+        )
 
     # get a normal distribution of data centered at 0 with stdev 1
     rand_arr = np.random.normal(loc=0.0, scale=1.0, size=csr.shape)
@@ -441,8 +491,9 @@ def normal_variability(csr, cloud_type, var_frac, option='tri',
     variability_scalar = 1 + var_frac_arr * rand_arr
 
     # only apply rand to the applicable cloudy timesteps
-    variability_scalar = np.where(np.isin(cloud_type, CLOUD_TYPES),
-                                  variability_scalar, 1)
+    variability_scalar = np.where(
+        np.isin(cloud_type, CLOUD_TYPES), variability_scalar, 1
+    )
 
     return variability_scalar
 
