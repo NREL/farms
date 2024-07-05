@@ -1,13 +1,15 @@
 """
 setup.py
 """
+
 import os
-from codecs import open
-from setuptools import setup, find_packages
-from setuptools.command.develop import develop
-from subprocess import check_call
 import shlex
+from codecs import open
+from subprocess import check_call
 from warnings import warn
+
+from setuptools import find_packages, setup
+from setuptools.command.develop import develop
 
 
 class PostDevelopCommand(develop):
@@ -22,8 +24,7 @@ class PostDevelopCommand(develop):
         try:
             check_call(shlex.split("pre-commit install"))
         except Exception as e:
-            warn("Unable to run 'pre-commit install': {}"
-                 .format(e))
+            warn("Unable to run 'pre-commit install': {}".format(e))
 
         develop.run(self)
 
@@ -39,9 +40,9 @@ with open("requirements.txt") as f:
 with open(os.path.join(here, "farms", "version.py"), encoding="utf-8") as f:
     version = f.read()
 
-version = version.split('=')[-1].strip().strip('"').strip("'")
+version = version.split("=")[-1].strip().strip('"').strip("'")
 
-test_requires = ["pytest>=5.2", ]
+test_requires = ["pytest>=5.2"]
 description = "The Fast All-sky Radiation Model for Solar applications (FARMS)"
 
 setup(
@@ -54,13 +55,14 @@ setup(
     url="https://github.com/NREL/farms",
     packages=find_packages(),
     package_dir={"farms": "farms"},
-    package_data={'farms': ['earth_periodic_terms.csv',
-                            'sun_earth_radius_vector.csv']},
+    package_data={
+        "farms": ["earth_periodic_terms.csv", "sun_earth_radius_vector.csv"]
+    },
     include_package_data=True,
     license="BSD 3-Clause",
     zip_safe=False,
     keywords="farms",
-    python_requires='>=3.7',
+    python_requires=">=3.8",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",

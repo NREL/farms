@@ -7,15 +7,16 @@ Created on 03/24/2023
 """
 
 import numpy as np
+
 from farms import farms_dni
+from farms.utilities import execute_pytest
 
 
 def test_farmsdni():
-    '''
-    Test FARMS-DNI with typical input variables
-    Check if the DNI computation is between 0 and 1400,
-    and larger than the DNI in the narrow beam.
-    '''
+    """
+    Test FARMS-DNI with typical input variables Check if the DNI computation is
+    between 0 and 1400, and larger than the DNI in the narrow beam.
+    """
     n = 100
     F0 = np.full(n, 1360.0)
     tau = np.arange(n) * 0.1
@@ -31,8 +32,16 @@ def test_farmsdni():
     F1 = Ftotal * 0.7
 
     Fd, dni_farmsdni, dni0 = farms_dni.farms_dni(
-        F0, tau, solar_zenith_angle, De, phase, phase1, phase2,
-        Tddclr, Ftotal, F1
+        F0,
+        tau,
+        solar_zenith_angle,
+        De,
+        phase,
+        phase1,
+        phase2,
+        Tddclr,
+        Ftotal,
+        F1,
     )
 
     cond1 = dni_farmsdni[dni_farmsdni < 0]
@@ -46,4 +55,4 @@ def test_farmsdni():
 
 
 if __name__ == "__main__":
-    test_farmsdni()
+    execute_pytest(__file__)
