@@ -8,10 +8,11 @@ Created on June 7th 2019.
 """
 
 import os
-import pytest
-import numpy as np
-from farms.utilities import rayleigh
 
+import numpy as np
+import pytest
+
+from farms.utilities import rayleigh
 
 RTOL = 0.001
 ATOL = 0.001
@@ -61,4 +62,4 @@ def execute_pytest(capture='all', flags='-rapP'):
 
 
 if __name__ == '__main__':
-    execute_pytest()
+    execute_pytest(__file__)
