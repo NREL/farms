@@ -15,12 +15,19 @@ Literature
     https://doi.org/10.1016/j.solener.2016.06.003.
     (http://www.sciencedirect.com/science/article/pii/S0038092X16301827)
 """
+
 import collections
+
 import numpy as np
 
-from farms import CLEAR_TYPES, ICE_TYPES, WATER_TYPES, SOLAR_CONSTANT
 import farms.utilities as ut
-from farms import farms_dni
+from farms import (
+    CLEAR_TYPES,
+    ICE_TYPES,
+    SOLAR_CONSTANT,
+    WATER_TYPES,
+    farms_dni,
+)
 
 
 def water_phase(tau, De, solar_zenith_angle):
@@ -34,28 +41,38 @@ def water_phase(tau, De, solar_zenith_angle):
     Ptau = (2.8850 + 0.002 * (De - 60.0)) * solar_zenith_angle - 0.007347
 
     # 12b from [1]
-    PDHI = (0.7846 * (1.0 + 0.0002 * (De - 60.0))
-            * np.power(solar_zenith_angle, 0.1605))
+    PDHI = (
+        0.7846
+        * (1.0 + 0.0002 * (De - 60.0))
+        * np.power(solar_zenith_angle, 0.1605)
+    )
 
     # 12c from [1]
-    delta = (-0.644531 * solar_zenith_angle + 1.20117 + 0.129807
-             / solar_zenith_angle - 0.00121096
-             / (solar_zenith_angle * solar_zenith_angle) + 1.52587e-07
-             / (solar_zenith_angle * solar_zenith_angle * solar_zenith_angle))
+    delta = (
+        -0.644531 * solar_zenith_angle
+        + 1.20117
+        + 0.129807 / solar_zenith_angle
+        - 0.00121096 / (solar_zenith_angle * solar_zenith_angle)
+        + 1.52587e-07
+        / (solar_zenith_angle * solar_zenith_angle * solar_zenith_angle)
+    )
 
     # part of 12d from [1]
     y = 0.012 * (tau - Ptau) * solar_zenith_angle
 
     # 11 from [1]
-    Tducld = ((1.0 + np.sinh(y)) * PDHI
-              * np.exp(-(np.power(np.log10(tau) - np.log10(Ptau), 2.0))
-              / delta))
+    Tducld = (
+        (1.0 + np.sinh(y))
+        * PDHI
+        * np.exp(-(np.power(np.log10(tau) - np.log10(Ptau), 2.0)) / delta)
+    )
 
     # 14a from [1]
-    Ruucld = np.where(tau < 1.0,
-                      0.107359 * tau,
-                      1.03 - np.exp(-(0.5 + np.log10(tau))
-                                    * (0.5 + np.log10(tau)) / 3.105))
+    Ruucld = np.where(
+        tau < 1.0,
+        0.107359 * tau,
+        1.03 - np.exp(-(0.5 + np.log10(tau)) * (0.5 + np.log10(tau)) / 3.105),
+    )
 
     return Tducld, Ruucld
 
@@ -68,38 +85,56 @@ def ice_phase(tau, De, solar_zenith_angle):
     De = np.minimum(De, 140)
 
     # 13a from [1]
-    Ptau = np.where(De <= 26.0,
-                    2.8487 * solar_zenith_angle - 0.0029,
-                    ((2.8355 + (100.0 - De) * 0.006) * solar_zenith_angle
-                     - 0.00612))
+    Ptau = np.where(
+        De <= 26.0,
+        2.8487 * solar_zenith_angle - 0.0029,
+        ((2.8355 + (100.0 - De) * 0.006) * solar_zenith_angle - 0.00612),
+    )
 
     # 13b from [1]
     PDHI = 0.756 * np.power(solar_zenith_angle, 0.0883)
 
     # 13c from [1]
-    delta = (-0.0549531 * solar_zenith_angle + 0.617632
-             + (0.17876 / solar_zenith_angle)
-             - (0.002174 / solar_zenith_angle ** 2))
+    delta = (
+        -0.0549531 * solar_zenith_angle
+        + 0.617632
+        + (0.17876 / solar_zenith_angle)
+        - (0.002174 / solar_zenith_angle**2)
+    )
 
     # part of 13c from [1]
     y = 0.01 * (tau - Ptau) * solar_zenith_angle
 
     # 11 from [1]
-    Tducld = ((1.0 + np.sinh(y)) * PDHI
-              * np.exp(-(np.power(np.log10(tau) - np.log10(Ptau), 2.0))
-                       / delta))
+    Tducld = (
+        (1.0 + np.sinh(y))
+        * PDHI
+        * np.exp(-(np.power(np.log10(tau) - np.log10(Ptau), 2.0)) / delta)
+    )
 
     # 14b from [1]
-    Ruucld = np.where(tau < 1.0,
-                      0.094039 * tau,
-                      1.02 - np.exp(-(0.5 + np.log10(tau))
-                                    * (0.5 + np.log10(tau)) / 3.25))
+    Ruucld = np.where(
+        tau < 1.0,
+        0.094039 * tau,
+        1.02 - np.exp(-(0.5 + np.log10(tau)) * (0.5 + np.log10(tau)) / 3.25),
+    )
 
     return Tducld, Ruucld
 
 
-def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
-          radius, Tuuclr, Ruuclr, Tddclr, Tduclr, albedo, debug=False):
+def farms(
+    tau,
+    cloud_type,
+    cloud_effective_radius,
+    solar_zenith_angle,
+    radius,
+    Tuuclr,
+    Ruuclr,
+    Tddclr,
+    Tduclr,
+    albedo,
+    debug=False,
+):
     """Fast All-sky Radiation Model for Solar applications (FARMS).
 
     Literature
@@ -186,20 +221,20 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
             beam in the circumsolar region.
     """
     # disable divide by zero warnings
-    np.seterr(divide='ignore')
+    np.seterr(divide="ignore")
 
-    ut.check_range(Tddclr, 'Tddclr')
-    ut.check_range(Tduclr, 'Tduclr')
-    ut.check_range(Ruuclr, 'Ruuclr')
-    ut.check_range(Tuuclr, 'Tuuclr')
-    ut.check_range(tau, 'tau (cld_opd_dcomp)', rang=(0, 160))
+    ut.check_range(Tddclr, "Tddclr")
+    ut.check_range(Tduclr, "Tduclr")
+    ut.check_range(Ruuclr, "Ruuclr")
+    ut.check_range(Tuuclr, "Tuuclr")
+    ut.check_range(tau, "tau (cld_opd_dcomp)", rang=(0, 160))
 
     F0 = SOLAR_CONSTANT / (radius * radius)
     solar_zenith_angle = np.cos(np.radians(solar_zenith_angle))
 
     phase = np.zeros_like(cloud_type)
-    phase[np.in1d(cloud_type, WATER_TYPES).reshape(cloud_type.shape)] = 1
-    phase[np.in1d(cloud_type, ICE_TYPES).reshape(cloud_type.shape)] = 2
+    phase[np.isin(cloud_type, WATER_TYPES).reshape(cloud_type.shape)] = 1
+    phase[np.isin(cloud_type, ICE_TYPES).reshape(cloud_type.shape)] = 2
 
     phase1 = np.where(phase == 1)
     phase2 = np.where(phase == 2)
@@ -209,34 +244,39 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
     Tducld = np.zeros_like(tau)
     Ruucld = np.zeros_like(tau)
 
-    Tducld[phase1], Ruucld[phase1] = water_phase(tau[phase1], De[phase1],
-                                                 solar_zenith_angle[phase1])
+    Tducld[phase1], Ruucld[phase1] = water_phase(
+        tau[phase1], De[phase1], solar_zenith_angle[phase1]
+    )
 
-    Tducld[phase2], Ruucld[phase2] = ice_phase(tau[phase2], De[phase2],
-                                               solar_zenith_angle[phase2])
+    Tducld[phase2], Ruucld[phase2] = ice_phase(
+        tau[phase2], De[phase2], solar_zenith_angle[phase2]
+    )
 
     # eq 8 from [1]
     Tddcld = np.exp(-tau / solar_zenith_angle)
 
     Fd = solar_zenith_angle * F0 * Tddcld * Tddclr  # eq 2a from [1]
-    F1 = solar_zenith_angle * F0 * (Tddcld * (Tddclr + Tduclr)
-                                    + Tducld * Tuuclr)  # eq 3 from [1]
+    F1 = (
+        solar_zenith_angle
+        * F0
+        * (Tddcld * (Tddclr + Tduclr) + Tducld * Tuuclr)
+    )  # eq 3 from [1]
 
     # ghi eqn 6 from [1]
     ghi = F1 / (1.0 - albedo * (Ruuclr + Ruucld * Tuuclr * Tuuclr))
     dni = Fd / solar_zenith_angle  # eq 2b from [1]
     dhi = ghi - Fd  # eq 7 from [1]
 
-    Fd, dni_farmsdni, dni0 = farms_dni.farms_dni(F0, tau, solar_zenith_angle,
-                                                 De, phase, phase1, phase2,
-                                                 Tddclr, ghi, F1)
+    Fd, dni_farmsdni, dni0 = farms_dni.farms_dni(
+        F0, tau, solar_zenith_angle, De, phase, Tddclr, ghi, F1
+    )
 
-    clear_mask = np.in1d(cloud_type, CLEAR_TYPES).reshape(cloud_type.shape)
+    clear_mask = np.isin(cloud_type, CLEAR_TYPES).reshape(cloud_type.shape)
     if debug:
         # Return NaN if clear-sky, else return cloudy sky data
-        fast_data = collections.namedtuple('fast_data', ['ghi', 'dni', 'dhi',
-                                                         'Tddcld', 'Tducld',
-                                                         'Ruucld'])
+        fast_data = collections.namedtuple(
+            "fast_data", ["ghi", "dni", "dhi", "Tddcld", "Tducld", "Ruucld"]
+        )
         fast_data.Tddcld = np.where(clear_mask, np.nan, Tddcld)
         fast_data.Tducld = np.where(clear_mask, np.nan, Tducld)
         fast_data.Ruucld = np.where(clear_mask, np.nan, Ruucld)
@@ -245,8 +285,9 @@ def farms(tau, cloud_type, cloud_effective_radius, solar_zenith_angle,
         fast_data.dhi = np.where(clear_mask, np.nan, dhi)
 
         return fast_data
-    else:
-        out = (np.where(clear_mask, np.nan, ghi),
-               np.where(clear_mask, np.nan, dni_farmsdni),
-               np.where(clear_mask, np.nan, dni0))
-        return out
+    out = (
+        np.where(clear_mask, np.nan, ghi),
+        np.where(clear_mask, np.nan, dni_farmsdni),
+        np.where(clear_mask, np.nan, dni0),
+    )
+    return out

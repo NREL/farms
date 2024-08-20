@@ -59,6 +59,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+coverage/lcov.info
 .hypothesis/
 
 # Translations
