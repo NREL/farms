@@ -25,8 +25,6 @@ def test_farmsdni():
     De = np.arange(n) + 10.0
     phase = np.full(n, 2)
     phase[:50] = 1
-    phase1 = np.where(phase == 1)[0]
-    phase2 = np.where(phase == 2)[0]
     Tddclr = (np.arange(n) + 100) * 0.005
     Ftotal = np.flip(np.arange(n) + 900.0)
     F1 = Ftotal * 0.7
@@ -37,8 +35,6 @@ def test_farmsdni():
         solar_zenith_angle,
         De,
         phase,
-        phase1,
-        phase2,
         Tddclr,
         Ftotal,
         F1,
