@@ -1,31 +1,14 @@
-rex documentation
-*******************
+.. toctree::
+   :hidden:
 
-What is farms?
-==============
+   Home page <self>
+   Installation and Usage <misc/installation_usage>
+   API reference <_autosummary/farms>
 
-FARMS is the Fast All-sky Radiation Model for Solar applications and is used to
-compute cloudy irradiance.
+#################
+Welcome to FARMS!
+#################
 
 .. include:: ../../README.rst
    :start-after: inclusion-intro
 
-.. toctree::
-   :maxdepth: 3
-   :caption: Contents:
-
-   installation
-
-.. autosummary::
-   :toctree: _farms
-   :template: custom-module-template.rst
-   :recursive:
-
-   farms
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -2,8 +2,8 @@
 """
 FARMS package
 
-Note:
-----
+Notes
+-----
 cloud_types:
     "'N/A': -15,
     'Clear': 0,
