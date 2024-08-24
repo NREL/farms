@@ -58,7 +58,6 @@ extensions = [
     "sphinx.ext.extlinks",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
-    "sphinx_copybutton",
 ]
 autosummary_generate = True
 
