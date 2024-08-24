@@ -56,7 +56,6 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
     "sphinx.ext.extlinks",
-    "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
 ]
 autosummary_generate = True
