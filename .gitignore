@@ -125,3 +125,6 @@ scratch
 
 # VSCode config
 .vscode
+
+
+*_autosummary
