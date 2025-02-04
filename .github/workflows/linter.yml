@@ -16,4 +16,4 @@ jobs:
         with:
           version: 0.4.10
           args: check --output-format=github
-          src: "./nsrdb ./tests"
+          src: "./farms ./tests"
